@@ -1,0 +1,50 @@
+:root {
+    --font-404: "Kenia", monospace;
+    --font-size-404: clamp(5rem, 60vw, 20rem);
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+main {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    text-align: center;
+    align-items: center;
+    flex: 0;
+}
+
+h1 {
+    font-family: var(--font-404);
+    font-size: var(--font-size-404);
+    font-weight: 1;
+    line-height: 1em;
+    color: var(--color-text);
+    margin: 0;
+}
+
+p {
+    font-family: var(--font-monospace);
+    font-size: var(--font-size-h2);
+    margin: 0;
+}
+
+footer {
+    display: none;
+}
