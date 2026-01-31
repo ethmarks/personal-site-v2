@@ -42,7 +42,8 @@ definePageMeta({
             </p>
             <h2>Usage</h2>
             <p>
-                Thessa is designed to be as easy to use as possible. Just go to
+                Thessa is designed to be as easy to use as possible. Simply
+                visit the official Thessa instance at
                 <a href="https://thessa.vercel.app">https://thessa.vercel.app</a
                 >, type your word into the input bar, and press enter. Thessa
                 will send your input to my APIs and display the results. You
@@ -68,6 +69,78 @@ definePageMeta({
                 </li>
                 <li>Pressing the backspace key</li>
             </ol>
+            <h2>Limits</h2>
+            <p>
+                Thessa is free for everyone, you don't need to sign in, and I
+                don't impose any usage limits.
+            </p>
+            <p>
+                However, I do have some upstream usage limits. The
+                <a href="https://thessa.vercel.app">official Thessa instance</a>
+                uses my personal Cerebras key, which is limited to 30 requests
+                per minute, 900 requests per hour, and 14,400 requests per day.
+                These limits are shared across
+                <em>all users</em>. However, I don't think that Thessa will ever
+                reach those usage limits. If I turn out to be wrong, I'll
+                consider implementing per-user rate limiting. Until then, Thessa
+                will remain unrestricted.
+            </p>
+            <p>
+                Because my API key limits are a shared resource, I've tried to
+                mitigate the surface area for abusing Thessa's free API. For
+                example, exposing a generic
+                <code>/api/llm/</code> endpoint would allow anybody to exploit
+                Thessa's API for their own unrelated projects, depleting the
+                shared Cerebras quota and making it so that legitimate users
+                can't access Thessa.
+            </p>
+            <p>
+                To prevent this from happening without requiring authentication
+                or adding rate limits, I only exposed the
+                <code>/api/synonyms</code> and
+                <code>/api/definitions/</code> endpoints. These endpoints
+                prefill most of the prompt except for the input, meaning
+                Thessa's APIs are effectively useless for other people's general
+                LLM projects.
+            </p>
+            <h2>Self-hosting</h2>
+            <p>
+                If you don't want to use the official Thessa instance (or if
+                it's ever unavailable), you can also run Thessa locally, though
+                you'll have to provide your own API key.
+            </p>
+            <p>
+                First, run these commands to clone the repo and install
+                dependencies.
+            </p>
+            <Code lang="bash">
+                <pre>
+                    git clone https://github.com/ethmarks/thessa.git
+                    cd thessa
+                    pnpm install
+                </pre>
+            </Code>
+            <p>
+                Next, you'll need to edit the environment variables. Rename
+                <code>.env.example</code> to <code>.env</code> and configure the
+                variables. Thessa works with any OpenAI-compatible endpoint.
+            </p>
+            <Code lang="dotenv">
+                <pre>
+                    LLM_ENDPOINT=The API endpoint URL (default is Cerebras)
+                    LLM_KEY=Your API key
+                    LLM_MODEL=The model to use (default is gpt-oss-120b)
+                </pre>
+            </Code>
+            <p>
+                Lastly, start the development server and open Thessa in your
+                browser.
+            </p>
+            <Code lang="bash">
+                <pre>
+                    pnpm dev --open
+                </pre>
+            </Code>
             <h2>Tech Stack</h2>
             <h3>Frontend</h3>
             <p>

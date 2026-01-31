@@ -21,7 +21,7 @@ export default defineNuxtConfig({
   css: ["~/assets/css/main.css", "~/assets/css/content.css"],
   modules: ["nuxt-shiki"],
   shiki: {
-    bundledLangs: ["bash", "javascript"],
+    bundledLangs: ["bash", "javascript", "dotenv"],
     defaultTheme: "github-dark",
   },
 });
