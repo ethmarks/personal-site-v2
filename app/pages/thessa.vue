@@ -25,20 +25,24 @@ definePageMeta({
         <article class="animated">
             <p>
                 <a href="https://github.com/ethmarks/thessa">Thessa</a> is an
-                AI-powered thesaurus I built.
+                AI-powered thesaurus I made.
             </p>
             <h2>Why?</h2>
             <p>
                 I built Thessa because I noticed that LLMs are pretty good at
                 using interesting and esoteric words. Opening up an LLM
                 interface and copy-pasting my synonym prompt was inconvenient,
-                so I wanted to build a website to streamline the process. In May
-                2025, I built the first prototype of Thessa, called Thessa v1,
-                using vanilla HTML, GitHub Pages, and
-                <a href="https://llm7.io/">llm7.io</a>'s Anonymous tier. Later,
-                in December 2025, I remade Thessa from the ground up as Thessa
-                v2, which is the current version of Thessa and the one that this
-                article is about.
+                so I wanted to build a website to streamline the process.
+            </p>
+            <p>
+                In May 2025, I built the first prototype of Thessa, called
+                Thessa v1, using vanilla HTML, GitHub Pages, and
+                <a href="https://llm7.io/">llm7.io</a>'s Anonymous tier.
+            </p>
+            <p>
+                Later, in December 2025, I rebuilt Thessa from the ground up as
+                Thessa v2, which is the current version of Thessa and the one
+                that this article is about.
             </p>
             <h2>Usage</h2>
             <p>
@@ -154,21 +158,20 @@ definePageMeta({
             <p>
                 Thessa uses the
                 <a href="https://www.cerebras.ai/">Cerebras</a> API with
-                `gpt-oss-120b` for its AI inference. I chose Cerebras because of
-                its unmatched inference speed, peaking at around 3,000 tokens
-                per second for `gpt-oss-120b`. This allows Thessa to generate
-                dozens of synonyms in under a second, drastically speeding up
-                loading times.
+                <code>gpt-oss-120b</code> for its AI inference. I chose Cerebras
+                because of its unmatched inference speed, peaking at around
+                3,000 tokens per second for <code>gpt-oss-120b</code>. This
+                allows Thessa to generate dozens of synonyms in under a second,
+                drastically speeding up loading times.
             </p>
             <h3>Hosting</h3>
             <p>
                 Thessa is hosted on
-                <a href="https://vercel.com/home">Vercel</a>. I chose Vercel
-                because I was already familiar with it and I needed server-side
-                functionality
-                <a href="https://vercel.com/docs/functions">Vercel Functions</a>
-                in this case) in order to securely handle my private Cerebras
-                API key.
+                <a href="https://vercel.com/home">Vercel</a>. I couldn't use
+                GitHub Pages because I needed server-side functionality to
+                securely handle my private Cerebras API key, which GitHub Pages
+                doesn't provide. I chose Vercel because I was already familiar
+                with it.
             </p>
             <h2>Prompts</h2>
             <p>
@@ -259,13 +262,13 @@ definePageMeta({
             </blockquote>
             <h2>Conclusion</h2>
             <p>
-                Thessa is one of my favorite and most useful projects. I use it
-                multiple times per week and sometimes many times per day.
-                Rewriting Thessa, originally a single HTML file that used a
-                client-side BYOK system, into a SvelteKit project that uses a
-                custom server-side API powered by Cerebras was a delightful and
-                kind of poetic project to end the year with. I hope you find
-                Thessa as useful as I do!
+                Of all of my projects, Thessa is probably the one that I use
+                most frequently. It's fun to indulge my temperamental
+                disposition toward the preferential employment of
+                sesquipedalian, garrulous terminology in lieu of vernacular
+                austerity, and Thessa substantially mitigates the inhibitory
+                factors of that desideratum. I hope you find Thessa as useful as
+                I do!
             </p>
             <p>~Ethan</p>
         </article>
