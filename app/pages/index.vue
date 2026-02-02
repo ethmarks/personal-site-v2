@@ -10,8 +10,10 @@
             >
                 <h2>ColourlessTransformer</h2>
                 <p>
-                    A Streamlit interface for PaintTransformer, a neural network
-                    that approximates images using paint strokes
+                    A <span style="color: #ff4b4b">Streamlit</span> interface
+                    for <span style="color: #e4d328">PaintTransformer</span>, a
+                    <span style="color: #7127d8">neural network</span> that
+                    approximates images using paint strokes
                 </p>
             </ProjectCard>
             <ProjectCard
@@ -21,7 +23,11 @@
                 alt="Screenshot of the Thessa interface with the input bar open"
             >
                 <h2>Thessa</h2>
-                <p>An AI thesaurus built with Sveltekit powered by Cerebras</p>
+                <p>
+                    An <span style="color: #00a67e">AI</span> thesaurus built
+                    with <span style="color: #ff3e00">Sveltekit</span> powered
+                    by <span style="color: #f15a27">Cerebras</span>
+                </p>
             </ProjectCard>
             <ProjectCard
                 id="fphf"
@@ -31,8 +37,11 @@
             >
                 <h2>Fixed-Point Hash Finder</h2>
                 <p>
-                    A Rust tool that searches a cryptographic hash space for
-                    strings that contain part of their own SHA-256 hash
+                    A <span style="color: #e43a25">Rust</span> tool that
+                    searches a
+                    <span style="color: #0aaa52">cryptographic hash space</span>
+                    for strings that contain part of their own
+                    <span style="color: #9317c4">SHA-256 hash</span>
                 </p>
             </ProjectCard>
         </div>
