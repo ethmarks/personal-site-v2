@@ -10,10 +10,10 @@
             >
                 <h2>ColourlessTransformer</h2>
                 <p>
-                    A <span style="color: #ff4b4b">Streamlit</span> interface
-                    for <span style="color: #e4d328">PaintTransformer</span>, a
-                    <span style="color: #7127d8">neural network</span> that
-                    approximates images using paint strokes
+                    A <span>Streamlit</span> interface for
+                    <span>PaintTransformer</span>, a
+                    <span>neural network</span> that approximates images using
+                    paint strokes
                 </p>
             </ProjectCard>
             <ProjectCard
@@ -24,9 +24,8 @@
             >
                 <h2>Thessa</h2>
                 <p>
-                    An <span style="color: #00a67e">AI</span> thesaurus built
-                    with <span style="color: #ff3e00">Sveltekit</span> powered
-                    by <span style="color: #f15a27">Cerebras</span>
+                    An <span>AI</span> thesaurus built with
+                    <span>Sveltekit</span> powered by <span>Cerebras</span>
                 </p>
             </ProjectCard>
             <ProjectCard
@@ -37,11 +36,10 @@
             >
                 <h2>Fixed-Point Hash Finder</h2>
                 <p>
-                    A <span style="color: #e43a25">Rust</span> tool that
-                    searches a
-                    <span style="color: #0aaa52">cryptographic hash space</span>
+                    A <span>Rust</span> tool that searches a
+                    <span>cryptographic hash space</span>
                     for strings that contain part of their own
-                    <span style="color: #9317c4">SHA-256 hash</span>
+                    <span>SHA-256 hash</span>
                 </p>
             </ProjectCard>
         </div>
@@ -55,6 +53,7 @@ h1 {
 
 span {
     font-weight: 700;
+    color: var(--mint-blend);
 }
 
 h2 {
