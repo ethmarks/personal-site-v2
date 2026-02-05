@@ -41,10 +41,10 @@ if (import.meta.server) {
 </script>
 
 <template>
-    <div class="projectCard staggered">
+    <div class="projectCard animated staggered">
         <NuxtLink :to="href">
             <img
-                class="card"
+                class="card animated"
                 :src
                 :alt="props.alt"
                 :style
@@ -88,9 +88,6 @@ if (import.meta.server) {
     }
 }
 
-.projectCard:nth-child(even) img {
-    animation-name: cardEntranceRight;
-}
 .projectCard:nth-child(even) .info {
     text-align: right;
 }
@@ -100,6 +97,14 @@ if (import.meta.server) {
     }
 }
 
+img.animated {
+    animation: cardEntranceLeft 1s calc(var(--child-animation-delay) * 6) ease
+        both;
+}
+.projectCard:nth-child(even) img.animated {
+    animation-name: cardEntranceRight;
+}
+
 img {
     width: 100%;
     height: auto;
@@ -107,8 +112,6 @@ img {
     object-fit: cover;
     border-radius: var(--radius-xl);
     border: var(--border-standard-2px);
-    animation: cardEntranceLeft 1s calc(var(--child-animation-delay) * 6) ease
-        both;
 }
 
 a {

@@ -35,6 +35,7 @@ const style = `view-transition-name: img-${path}`;
             :width="dims.width"
             :height="dims.height"
             decoding="sync"
+            class="animated"
         />
     </div>
 </template>

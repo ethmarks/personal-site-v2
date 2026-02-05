@@ -16,7 +16,10 @@ main > article {
     height: auto;
     border: var(--border-standard-2px);
     border-radius: var(--radius-xl);
-    animation: heroEntrance 1.5s 0.3s ease both;
+
+    &.animated {
+        animation: heroEntrance 1.5s 0.3s ease both;
+    }
 }
 
 @keyframes heroEntrance {

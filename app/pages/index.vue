@@ -50,16 +50,22 @@ span {
 
 h2 {
     color: var(--color-accent);
-    animation: h2EntranceRight 1s calc(0.3s + var(--child-animation-delay) * 6)
-        ease both;
 }
-.projectCard:nth-child(even) h2 {
-    animation-name: h2EntranceLeft;
+
+@media (prefers-reduced-motion: no-preference) {
+    .animated h2 {
+        animation: h2EntranceRight 1s
+            calc(0.3s + var(--child-animation-delay) * 6) ease both;
+    }
+    .projectCard:nth-child(even).animated h2 {
+        animation-name: h2EntranceLeft;
+    }
+    .animated p {
+        animation: descEntrance 1s calc(0.5s + var(--child-animation-delay) * 6)
+            ease both;
+    }
 }
-p {
-    animation: descEntrance 1s calc(0.5s + var(--child-animation-delay) * 6)
-        ease both;
-}
+
 @media (max-width: 768px) {
     h2 {
         margin-block: 0;
