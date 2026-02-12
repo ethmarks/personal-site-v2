@@ -53,7 +53,7 @@ h1 {
 
 span {
     font-weight: 700;
-    color: var(--mint-blend);
+    color: var(--color-accent);
 }
 
 h2 {
