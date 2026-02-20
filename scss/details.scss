@@ -1,0 +1,79 @@
+@use "props.scss";
+
+details {
+    width: 100%;
+    border-collapse: separate;
+    overflow: hidden;
+    margin: var(--spacing-xl) 0;
+    border-radius: var(--radius-lg);
+    background: var(--color-panel);
+    border: var(--border-standard);
+    transition: var(--transition-transform-shadow);
+
+    @media (pointer: fine) {
+        &:not([open]):hover {
+            box-shadow: var(--shadow-accent-hover);
+        }
+    }
+
+    summary {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        padding: var(--spacing-md) var(--spacing-lg);
+        background: var(--color-panel-dark);
+        font-family: var(--font-secondary);
+        font-weight: var(--font-weight-semibold);
+        color: var(--color-accent);
+        text-transform: uppercase;
+        font-size: var(--font-size-sm);
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        user-select: none;
+        list-style: none;
+
+        // Remove default triangle in all browsers
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        // Custom chevron using a Unicode arrow, styled like accent text
+        &::before {
+            content: "▶";
+            font-size: 0.65em;
+            color: var(--color-accent);
+            flex-shrink: 0;
+            transition:
+                transform var(--transition-duration) var(--transition-timing),
+                color var(--transition-duration-fast) var(--transition-timing);
+        }
+
+        &:focus-visible {
+            outline: 2px solid var(--color-focus-outline);
+            outline-offset: -2px;
+        }
+    }
+
+    &[open] {
+        summary {
+            border-bottom: var(--border-standard);
+
+            &::before {
+                transform: rotate(90deg);
+            }
+        }
+
+        & > :not(summary) {
+            padding-inline: var(--spacing-lg);
+            animation: details-show 0.15s ease-in-out;
+        }
+    }
+}
+
+// from https://css-tricks.com/how-to-animate-the-details-element/#comment-1769265
+@keyframes details-show {
+    from {
+        opacity: 0;
+        transform: translateY(-0.5em);
+    }
+}
