@@ -66,16 +66,6 @@ await processStaticWC("wc/footer.wc.js");
 
 import { processSCSS } from "./scss.js";
 
-await processSCSS("scss/props");
-await processSCSS("scss/layout");
-await processSCSS("scss/text");
-await processSCSS("scss/fonts");
-await processSCSS("scss/media");
-await processSCSS("scss/header");
-await processSCSS("scss/footer");
-await processSCSS("scss/blockquote");
-await processSCSS("scss/table");
-
 await processSCSS("scss/ethmarks");
 await processSCSS("scss/ethmarks-props");
 await processSCSS("scss/ethmarks-wc");
@@ -107,6 +97,23 @@ await copyOut("fonts/Nunito-latin-ext-italic.woff2");
 await copyOut("fonts/Nunito-latin-italic.woff2");
 await copyOut("fonts/Sen-latin.woff2");
 await copyOut("fonts/Sen-latin-ext.woff2");
+
+await copyOut("fonts/KaTeX_AMS-Regular.woff2");
+await copyOut("fonts/KaTeX_Caligraphic-Bold.woff2");
+await copyOut("fonts/KaTeX_Caligraphic-Regular.woff2");
+await copyOut("fonts/KaTeX_Fraktur-Bold.woff2");
+await copyOut("fonts/KaTeX_Fraktur-Regular.woff2");
+await copyOut("fonts/KaTeX_Main-Bold.woff2");
+await copyOut("fonts/KaTeX_Main-Italic.woff2");
+await copyOut("fonts/KaTeX_Main-Regular.woff2");
+await copyOut("fonts/KaTeX_Math-Italic.woff2");
+await copyOut("fonts/KaTeX_SansSerif-Regular.woff2");
+await copyOut("fonts/KaTeX_Script-Regular.woff2");
+await copyOut("fonts/KaTeX_Size1-Regular.woff2");
+await copyOut("fonts/KaTeX_Size2-Regular.woff2");
+await copyOut("fonts/KaTeX_Size3-Regular.woff2");
+await copyOut("fonts/KaTeX_Size4-Regular.woff2");
+await copyOut("fonts/KaTeX_Typewriter-Regular.woff2");
 
 // this is HTML snippet preloads fonts to reduce page load times
 await copyOut("fonts/fonts.html");
@@ -165,6 +172,23 @@ hardpoint("Nunito-latin-italic.woff2");
 hardpoint("Sen-latin.woff2");
 hardpoint("Sen-latin-ext.woff2");
 hardpoint("fonts.html");
+
+hardpoint("KaTeX_AMS-Regular.woff2");
+hardpoint("KaTeX_Caligraphic-Bold.woff2");
+hardpoint("KaTeX_Caligraphic-Regular.woff2");
+hardpoint("KaTeX_Fraktur-Bold.woff2");
+hardpoint("KaTeX_Fraktur-Regular.woff2");
+hardpoint("KaTeX_Main-Bold.woff2");
+hardpoint("KaTeX_Main-Italic.woff2");
+hardpoint("KaTeX_Main-Regular.woff2");
+hardpoint("KaTeX_Math-Italic.woff2");
+hardpoint("KaTeX_SansSerif-Regular.woff2");
+hardpoint("KaTeX_Script-Regular.woff2");
+hardpoint("KaTeX_Size1-Regular.woff2");
+hardpoint("KaTeX_Size2-Regular.woff2");
+hardpoint("KaTeX_Size3-Regular.woff2");
+hardpoint("KaTeX_Size4-Regular.woff2");
+hardpoint("KaTeX_Typewriter-Regular.woff2");
 
 hardpoint("ethmarks.ico");
 
