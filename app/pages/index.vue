@@ -62,15 +62,37 @@ h2 {
 
 @media (prefers-reduced-motion: no-preference) {
     .animated h2 {
-        animation: h2EntranceRight 1s
-            calc(0.3s + var(--child-animation-delay) * 6) ease both;
+        animation: textEntrance 1s calc(0.3s + var(--child-animation-delay) * 6)
+            ease both;
     }
     .projectCard:nth-child(even).animated h2 {
-        animation-name: h2EntranceLeft;
+        animation-name: textEntrance;
     }
     .animated p {
-        animation: descEntrance 1s calc(0.5s + var(--child-animation-delay) * 6)
+        animation: textEntrance 1s calc(0.5s + var(--child-animation-delay) * 6)
             ease both;
+    }
+
+    /* For some reason, Chromium does _not_ handle the h2Entrance animations
+       well, causing the frame rate to slow to a crawl for several seconds
+       during page load. I thought for sure that it was the text-shadow effects
+       that were causing the lag, but during testing I determined that they
+       actually have a completely negligible effect. The culprit is actually the translateX()
+       effects, which sounds bizarre but all of my testing has confirmed this.
+       I suspect that it's caused by layout thrashing or something, but
+       will-change didn't help, nor did translate3d(). The only solution that
+       worked was to avoid translateX() entirely.
+       So we default h2 elements to use the translateY()-based textEntrance
+       animation (which runs smoothly on Chromium), and only use the
+       translateX()-based h2Entrance animations when the browser is Firefox. */
+    @-moz-document url-prefix() {
+        .animated h2 {
+            animation: h2EntranceRight 1s
+                calc(0.3s + var(--child-animation-delay) * 6) ease both;
+        }
+        .projectCard:nth-child(even).animated h2 {
+            animation-name: h2EntranceLeft;
+        }
     }
 }
 
@@ -142,15 +164,10 @@ h2 {
     }
 }
 
-@keyframes descEntrance {
+@keyframes textEntrance {
     from {
         opacity: 0;
         transform: translateY(30px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
 </style>
