@@ -33,3 +33,9 @@ main > article {
         clip-path: xywh(0 0 100% 100% round var(--radius-xl));
     }
 }
+
+html:not(.no-view-transition) h1:not(#site-heading),
+html:not(.no-view-transition) .hero img,
+html:not(.no-view-transition) .external-link {
+    animation: none !important;
+}
