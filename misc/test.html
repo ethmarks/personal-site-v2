@@ -46,9 +46,38 @@
                 <input
                     id="page-url"
                     type="url"
-                    placeholder="https://example.com/some-page"
+                    placeholder="https://site-ethmarks.vercel.app/"
+                    list="ethmarksSiteURLs"
                     required
                 />
+
+                <datalist id="ethmarksSiteURLs">
+                    <option value="https://site-ethmarks.vercel.app/"></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/about"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/posts"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/waterman"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/blips"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/ink"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/ink/lastsatellite"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/projects"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/projects/colourlesstransformer"
+                    ></option>
+                </datalist>
 
                 <button type="submit">Load</button>
                 <span id="status"></span>
