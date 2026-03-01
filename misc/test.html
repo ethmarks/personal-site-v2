@@ -144,7 +144,7 @@
                         // Deployed on Vercel: Use the internal rewrite path
                         // This bypasses corsproxy.io restrictions and works within Vercel's edge
                         const target = new URL(paramPage);
-                        requestUrl = `/cors-proxy${target.pathname}${target.search}`;
+                        requestUrl = `/common/cors-proxy${target.pathname}${target.search}`;
                     }
 
                     const res = await fetch(requestUrl);
