@@ -9,5 +9,11 @@
       "source": "/",
       "destination": "/common"
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/cors-proxy/:path*",
+      "destination": "https://site-ethmarks.vercel.app/:path*"
+    }
   ]
 }

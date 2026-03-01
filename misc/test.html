@@ -128,13 +128,31 @@
                     .toString()
                     .replace(/\/$/, "");
 
+                // Detect environment
+                const isLocal =
+                    window.location.hostname === "localhost" ||
+                    window.location.hostname === "127.0.0.1";
+
                 let html;
                 try {
-                    const res = await fetch(
-                        CORS_PROXY + encodeURIComponent(paramPage),
-                    );
-                    if (!res.ok)
+                    let requestUrl;
+
+                    if (isLocal) {
+                        // Local development: Use the external CORS proxy
+                        requestUrl = CORS_PROXY + encodeURIComponent(paramPage);
+                    } else {
+                        // Deployed on Vercel: Use the internal rewrite path
+                        // This bypasses corsproxy.io restrictions and works within Vercel's edge
+                        const target = new URL(paramPage);
+                        requestUrl = `/cors-proxy${target.pathname}${target.search}`;
+                    }
+
+                    const res = await fetch(requestUrl);
+
+                    if (!res.ok) {
                         throw new Error(`HTTP ${res.status} ${res.statusText}`);
+                    }
+
                     html = await res.text();
                 } catch (err) {
                     statusEl.textContent = `Fetch error: ${err.message}`;
