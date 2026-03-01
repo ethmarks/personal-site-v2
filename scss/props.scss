@@ -215,8 +215,10 @@
     --footer-border: 1px solid var(--footer-border-color);
     --footer-radius: var(--radius-lg);
     --footer-icon-gap: var(--spacing-xs);
+    --footer-icon-gap-mobile: var(--spacing-md);
     --footer-padding-block: 7px;
     --footer-padding-sides: 15px;
+    --footer-padding-sides-mobile: 25px;
     --footer-margin-top: 0px;
     --footer-margin-sides: 10px;
     --footer-margin-bottom: 5px;
@@ -227,5 +229,7 @@
 
     @media (max-width: 768px) {
         --main-margin-top: var(--main-margin-top-mobile);
+        --footer-padding-sides: var(--footer-padding-sides-mobile);
+        --footer-icon-gap: var(--footer-icon-gap-mobile);
     }
 }
