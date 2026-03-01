@@ -28,8 +28,17 @@
         <main>
             <h1>ethmarks/common Tester</h1>
             <p>
-                Fetches a page and replaces all references to the common URL
-                with local assets.
+                Fetches a page and replaces all production ethmarks/common URIs
+                with their counterparts relative to the root of the current
+                page.
+            </p>
+            <p>
+                If you're viewing this at
+                <a href="https://site-ethmarks.vercel.app/common/test"
+                    >https://site-ethmarks.vercel.app/common/test</a
+                >, the rendered pages will look exactly identical. This tool is
+                meant to be used for previewing during local development or from
+                a preview deployment.
             </p>
 
             <form id="controls">
