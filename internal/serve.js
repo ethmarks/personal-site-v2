@@ -11,6 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const DIST_DIR = path.join(ROOT, "dist");
 const PORT = 7331;
+const DEV_URL = `http://localhost:${PORT}`;
 
 const WATCH_DIRS = ["wc", "scss", "scripts", "fonts", "misc"];
 const WATCH_FILES = [
@@ -66,15 +67,19 @@ function build() {
   console.log("\n🔨 Building…");
   broadcast("building");
 
-  const proc = spawn("node", ["build.js"], { cwd: ROOT, stdio: "inherit" });
+  const proc = spawn("node", ["build.js"], { cwd: ROOT, stdio: "pipe" });
+
+  let output = "";
+  proc.stdout.on("data", (d) => (output += d));
+  proc.stderr.on("data", (d) => (output += d));
 
   proc.on("close", (code) => {
     building = false;
     if (code === 0) {
-      console.log("✅ Build complete — reloading");
+      console.log(`✅ Build complete - Dev server running at ${DEV_URL}`);
       broadcast("reload");
     } else {
-      console.error(`❌ Build failed (exit ${code})`);
+      console.error(`❌ Build failed (exit ${code})\n${output}`);
       broadcast("error", `Build failed with exit code ${code}`);
     }
     if (pendingRebuild) build();
@@ -87,17 +92,21 @@ function build() {
 
 // Debounce: many editors write files in multiple rapid events
 let debounceTimer = null;
-function scheduleBuild() {
+let pendingFilename = null;
+function scheduleBuild(filename) {
+  pendingFilename = filename;
   clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(build, 150);
+  debounceTimer = setTimeout(() => {
+    console.log(`  changed: ${pendingFilename}`);
+    build();
+  }, 150);
 }
 
 for (const dir of WATCH_DIRS) {
   const full = path.join(ROOT, dir);
   if (!fs.existsSync(full)) continue;
   fs.watch(full, { recursive: true }, (event, filename) => {
-    console.log(`  changed: ${dir}/${filename}`);
-    scheduleBuild();
+    scheduleBuild(`${dir}/${filename}`);
   });
 }
 
@@ -105,8 +114,7 @@ for (const file of WATCH_FILES) {
   const full = path.join(ROOT, file);
   if (!fs.existsSync(full)) continue;
   fs.watch(full, (event, filename) => {
-    console.log(`  changed: ${filename}`);
-    scheduleBuild();
+    scheduleBuild(filename);
   });
 }
 
@@ -190,8 +198,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`Dev server running at http://localhost:${PORT}`);
-  console.log(`  Watching: ${[...WATCH_DIRS, ...WATCH_FILES].join(", ")}`);
-  console.log("\nRunning initial build…");
   build();
 });
