@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ethmarks/common Tester</title>
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@intergrav/dev.css@4"
+        />
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <style>
+            form {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                margin-bottom: 1rem;
+            }
+            label {
+                font-weight: bold;
+            }
+            input[type="url"] {
+                flex: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>ethmarks/common Tester</h1>
+            <p>
+                Fetches a page and replaces all production ethmarks/common URIs
+                with their counterparts relative to the root of the current
+                page.
+            </p>
+            <p>
+                If you're viewing this at
+                <a href="https://site-ethmarks.vercel.app/common/test.html"
+                    >https://site-ethmarks.vercel.app/common/test.html</a
+                >, the rendered pages will look exactly identical. This tool is
+                meant to be used for previewing during local development or from
+                a preview deployment.
+            </p>
+
+            <form id="controls">
+                <label for="page-url">Page URL</label>
+                <input
+                    id="page-url"
+                    type="url"
+                    placeholder="https://site-ethmarks.vercel.app/"
+                    list="ethmarksSiteURLs"
+                    required
+                />
+
+                <datalist id="ethmarksSiteURLs">
+                    <option value="https://site-ethmarks.vercel.app/"></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/about"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/posts"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/waterman"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/blips"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/ink"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/ink/lastsatellite"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/projects"
+                    ></option>
+                    <option
+                        value="https://site-ethmarks.vercel.app/projects/colourlesstransformer"
+                    ></option>
+                </datalist>
+
+                <button type="submit">Load</button>
+                <span id="status"></span>
+            </form>
+        </main>
+
+        <script type="module">
+            // The following JS was vibe-coded with Claude Sonnet 4.6.
+            // I have no idea how it works, only that it does.
+
+            const COMMON_URL = "https://site-ethmarks.vercel.app/common";
+            const CORS_PROXY = "https://corsproxy.io/?url=";
+
+            const form = document.getElementById("controls");
+            const pageInput = document.getElementById("page-url");
+            const statusEl = document.getElementById("status");
+
+            const params = new URLSearchParams(window.location.search);
+            const paramPage = params.get("page");
+
+            // Pre-fill input from query param if present
+            if (paramPage) pageInput.value = paramPage;
+
+            // ------------------------------------------------------------------
+            // Navigation — redirect to this page with query params
+            // ------------------------------------------------------------------
+
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const pageUrl = pageInput.value.trim();
+                const next = new URL(window.location.href);
+                next.search = "";
+                next.searchParams.set("page", pageUrl);
+                window.location.href = next.toString();
+            });
+
+            // ------------------------------------------------------------------
+            // Render mode — only runs when ?page= is present
+            // ------------------------------------------------------------------
+
+            async function render() {
+                statusEl.textContent = "Fetching…";
+
+                const commonUrl = COMMON_URL.replace(/\/$/, "");
+
+                // Assets are siblings of this file in dist/, so resolve relative to it directly
+                const localBase = new URL(".", import.meta.url)
+                    .toString()
+                    .replace(/\/$/, "");
+
+                // Detect environment
+                const isLocal =
+                    window.location.hostname === "localhost" ||
+                    window.location.hostname === "127.0.0.1";
+
+                let html;
+                try {
+                    let requestUrl;
+
+                    if (isLocal) {
+                        // Local development: Use the external CORS proxy
+                        requestUrl = CORS_PROXY + encodeURIComponent(paramPage);
+                    } else {
+                        // Deployed on Vercel: Use the internal rewrite path
+                        // This bypasses corsproxy.io restrictions and works within Vercel's edge
+                        const target = new URL(paramPage);
+                        requestUrl = `/cors-proxy${target.pathname}${target.search}`;
+                    }
+
+                    const res = await fetch(requestUrl);
+
+                    if (!res.ok) {
+                        throw new Error(`HTTP ${res.status} ${res.statusText}`);
+                    }
+
+                    html = await res.text();
+                } catch (err) {
+                    statusEl.textContent = `Fetch error: ${err.message}`;
+                    return;
+                }
+
+                // Parse into a real DOM so URL resolution is done by the browser,
+                // not by fragile regexes
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, "text/html");
+
+                // Inject a <base> tag so the browser resolves all relative URLs
+                // against the fetched page's URL. Remove any existing <base> first.
+                const existingBase = doc.querySelector("base");
+                if (existingBase) existingBase.remove();
+                const base = doc.createElement("base");
+                base.href = paramPage;
+                doc.head.prepend(base);
+
+                // Serialize back to a string so we can do the common-URL text swap
+                const serialized = new XMLSerializer().serializeToString(doc);
+
+                // Replace every occurrence of the common URL with the local dist path
+                const escaped = commonUrl.replace(
+                    /[.*+?^${}()|[\]\\]/g,
+                    "\\$&",
+                );
+                const re = new RegExp(escaped + "/?", "g");
+                const rewritten = serialized.replace(re, localBase + "/");
+
+                // Write the rewritten HTML into the current document, replacing it fully
+                document.open("text/html");
+                document.write(rewritten);
+                document.close();
+            }
+
+            if (paramPage) render();
+        </script>
+    </body>
+</html>

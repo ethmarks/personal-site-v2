@@ -125,6 +125,7 @@ await copyOut("fonts/fonts.html");
 // This section handles one-off miscellaneous assets
 
 await copyOut("misc/ethmarks.ico");
+await copyOut("misc/test.html");
 
 await copyOut("internal/favicon.ico");
 

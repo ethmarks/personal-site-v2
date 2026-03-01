@@ -18,7 +18,8 @@ export default async function generateMap(out_dir) {
 </head>
 <body>
   <h1>ethmarks/common</h1>
-  <p>Asset library for <a href="https://github.com/ethmarks">ethmarks</a></p>
+  <p>Common web asset library for <a href="https://github.com/ethmarks">ethmarks</a></p>
+  <p>Preview changes at <a href=/${BASE_PATH}test.html>/test.html</a></p>
   <p>View the source at <a href="https://github.com/ethmarks/common">ethmarks/common</a> on GitHub</p>
   <p><strong>Total Assets:</strong> ${assets.length} files</p>
   <ul>
