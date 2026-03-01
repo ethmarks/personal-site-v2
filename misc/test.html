@@ -181,7 +181,19 @@
                     "\\$&",
                 );
                 const re = new RegExp(escaped + "/?", "g");
-                const rewritten = serialized.replace(re, localBase + "/");
+                let rewritten = serialized.replace(re, localBase + "/");
+
+                // Add the "hydrate" attribute to <eth-header> and <eth-footer> so the
+                // local web components take over even when pre-rendered children are present
+                rewritten = rewritten
+                    .replace(
+                        /<eth-header\b(?![^>]*\bhydrate\b)/g,
+                        "<eth-header hydrate",
+                    )
+                    .replace(
+                        /<eth-footer\b(?![^>]*\bhydrate\b)/g,
+                        "<eth-footer hydrate",
+                    );
 
                 // Write the rewritten HTML into the current document, replacing it fully
                 document.open("text/html");
