@@ -18,7 +18,9 @@ footer {
         border-top: var(--footer-border);
         border-radius: 0;
         margin: 0;
+    }
 
+    @media (pointer: coarse) {
         svg {
             width: 30px;
             height: 30px;
