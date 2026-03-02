@@ -18,7 +18,7 @@ main > article {
     border-radius: var(--radius-xl);
 }
 
-.hero img .animated {
+.hero img.animated {
     animation: heroEntrance 1.5s 0.3s ease both;
 }
 
