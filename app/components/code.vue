@@ -42,6 +42,11 @@ const extractedCode = computed(() => {
 
     return lines.map((line) => line.slice(minIndent)).join("\n");
 });
+
+// recalculate overflow classes after a delay
+setTimeout(() => {
+    window.dispatchEvent(new Event("recalcOverflow"));
+}, 300);
 </script>
 
 <template>
