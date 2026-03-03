@@ -82,6 +82,7 @@
     --color-border-standard: #{clr-alpha(--color-border, 0.1)};
     --color-border-light: #{clr-alpha(--color-border, 0.05)};
 
+    --border-none: 1px solid transparent;
     --border-standard: 1px solid var(--color-border-standard);
     --border-standard-2px: 2px solid var(--color-border-standard);
     --border-light: 1px solid var(--color-border-light);
