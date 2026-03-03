@@ -246,7 +246,7 @@ definePageMeta({
                 <img
                     class="responsive"
                     src="/fphv_screenshot.webp"
-                    alt="A screenshot of fphf being used in a terminal window against an abstract blue desktop wallaper. After running the command 'fphf', the terminal fills with status info as the process runs before eventually returning the string 'The SHA-256 hash of this sentence begins with b43c8b9.' and the hash 'b43c8b96f151033a566e148d45c43aa84ba153ff9407397f23d5eb43112bb5e1'"
+                    alt="A screenshot of fphv, a sleek minimalist interface with a dark colour palette. The input textbox says 'hello, dear reader! 1b5d3c8' and the output textbox says '1b5d3c86ed15146de67c6145af384dd3db2276cd4b3870b2a751ee256b7602c6' on the first line and '1b5d3c8 ✔' on the second line."
                     width="1286"
                     height="848"
                 />
