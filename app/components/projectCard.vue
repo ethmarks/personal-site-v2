@@ -65,6 +65,7 @@ if (import.meta.server) {
     display: grid;
     grid-template-columns: var(--column-one) var(--column-two);
     gap: var(--spacing-lg);
+    overflow: hidden;
 }
 .projectCard:nth-child(even) {
     grid-template-columns: var(--column-two) var(--column-one);
