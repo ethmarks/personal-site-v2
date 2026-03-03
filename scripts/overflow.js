@@ -32,6 +32,7 @@ function debouncedUpdate() {
 
 window.addEventListener("resize", debouncedUpdate);
 window.addEventListener("popstate", debouncedUpdate);
+window.addEventListener("recalcOverflow", debouncedUpdate);
 
 const observer = new MutationObserver((mutations) => {
   const hasRelevantChange = mutations.some((m) =>
