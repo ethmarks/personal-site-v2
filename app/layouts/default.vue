@@ -16,7 +16,7 @@ const pageImg = computed(() =>
         ? `${canonUrl}${route.meta.img}`
         : `${canonUrl}/ethmarks_projects.webp`,
 );
-const pageURL = `${canonUrl}${route.path.replace(/\/$/, "")}`;
+const pageURL = `${canonUrl}${route.path}`;
 
 useSeoMeta({
     title: pageTitle,
