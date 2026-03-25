@@ -133,7 +133,7 @@ definePageMeta({
                 <pre>
                     LLM_ENDPOINT=The API endpoint URL (default is Cerebras)
                     LLM_KEY=Your API key
-                    LLM_MODEL=The model to use (default is gpt-oss-120b)
+                    LLM_MODEL=The model to use (default is llama3.1-8b)
                 </pre>
             </Code>
             <p>
@@ -158,9 +158,9 @@ definePageMeta({
             <p>
                 Thessa uses the
                 <a href="https://www.cerebras.ai/">Cerebras</a> API with
-                <code>gpt-oss-120b</code> for its AI inference. I chose Cerebras
+                <code>llama3.1-8b</code> for its AI inference. I chose Cerebras
                 because of its unmatched inference speed, peaking at around
-                3,000 tokens per second for <code>gpt-oss-120b</code>. This
+                2,200 tokens per second for <code>llama3.1-8b</code>. This
                 allows Thessa to generate dozens of synonyms in under a second,
                 drastically speeding up loading times.
             </p>
