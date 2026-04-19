@@ -9,16 +9,20 @@ $$ H_{x}^{-1}(a,b)=H_{x}(a,H_{x+1}(b,-1)) $$
 The formula above is a neat way I found to constructively define the inverses of
 the first and second hyperoperations.
 
-## Background
+## Hyperoperations
 
 The basic arithmetic operations (e.g. addition and multiplication) are defined
 in terms of each other. This shouldn't be news for you; you most certainly
 learned this in grade school. The technical math term for this is the
 [hyperoperation sequence](https://en.wikipedia.org/wiki/Hyperoperation).
 
+### Successor
+
 The zeroth hyperoperation, which is denoted $H_0$, is the
 [successor function](https://en.wikipedia.org/wiki/Successor_function), which
 just increments its input by $1$. For example, $H_0(5)=6$.
+
+### Addition
 
 The first hyperoperation, denoted $H_1$, is
 [addition](https://en.wikipedia.org/wiki/Addition). It's defined as passing $a$
@@ -26,13 +30,16 @@ through the successor function $b$ times. Here's an example:
 
 $$
 \begin{aligned}
-5+3 &= H_1(5, 3) \\
-    &= H_0(H_0(H_0(5))) \\
-    &= H_0(H_0(6)) \\
-    &= H_0(7) \\
-    &= 8
+5+4 &= H_1(5, 4) \\
+    &= H_0(H_0(H_0(H_0(5)))) \\
+    &= H_0(H_0(H_0(6))) \\
+    &= H_0(H_0(7)) \\
+    &= H_0(8) \\
+    &= 9
 \end{aligned}
 $$
+
+### Multiplication
 
 The second hyperoperation, denoted $H_2$, is
 [multiplication](https://en.wikipedia.org/wiki/Multiplication). It's defined as
@@ -40,12 +47,15 @@ adding $a$ to itself $b$ times. Here's an example:
 
 $$
 \begin{aligned}
-5 \times 3  &= H_2(5, 3) \\
-            &= H_1(H_1(5,5),5) \\
-            &= H_1(10,5) \\
-            &= 15
+5 \times 4  &= H_2(5, 4) \\
+            &= H_1(5,H_1(5,H_1(5,5))) \\
+            &= H_1(5,H_1(5,10)) \\
+            &= H_1(5,15) \\
+            &= 20
 \end{aligned}
 $$
+
+### Exponentiation
 
 The third hyperoperation, denoted $H_3$, is
 [exponentiation](https://en.wikipedia.org/wiki/Exponentiation). It's defined as
@@ -53,33 +63,51 @@ multiplying $a$ by itself $b$ times. Here's an example:
 
 $$
 \begin{aligned}
-5^3 &= H_3(5, 3) \\
-    &= H_2(H_2(5,5),5) \\
-    &= H_2(25,5) \\
-    &= 125
+5^4 &= H_3(5, 4) \\
+    &= H_2(5,H_2(5,H_2(5,5))) \\
+    &= H_2(5,H_2(5,25)) \\
+    &= H_2(5,125) \\
+    &= 625
 \end{aligned}
 $$
+
+### Tetration
 
 The fourth hyperoperation, denoted $H_4$, is
 [tetration](https://en.wikipedia.org/wiki/Tetration). It's defined as raising
-$a$ to its own power $b$ times. Here's an example. Note that the final result
-has $2185$ digits (yes, really!), so you'll have to make do with a scientific
-notation approximation:
+$a$ to its own power $b$ times. Here's an example:
 
 $$
 \begin{aligned}
-{}^3 5  &= H_4(5, 3) \\
-        &= H_3(H_3(5,5),5) \\
-        &= H_3(3125,5) \\
-        &\approx 1.9 \times 10^{2184}
+{}^4 5  &= H_4(5, 4) \\
+        &= H_3(5,H_3(5,H_3(5,5))) \\
+        &= H_3(5,H_3(5,3125)) \\
+        &= H_3(5,5^{3125}) \\
+        &\approx 10^{10^{2184.1257}}
 \end{aligned}
 $$
 
+Unfortunately, I can't show you the exact value of the result of the example
+above, because it's simply too large.
+
+It's so large that there are more digits in that number than there are atoms in
+the observable universe.
+
+In fact, if each atom in the observable universe contained its own observable
+universe, and each sub-atom in those observable universes contained its own
+observable universe, and this universe nesting process repeated for 25 times in
+total, the total number of atoms would _still_ be less than the number of digits
+in that number. By over 100 orders of magnitude.
+
+Tetration doesn't mess around.
+
+### And beyond
+
 There are more hyperoperations (infinitely more, in fact), but there's really no
-practical reason to ever use the higher ones. Even with tetration, you regularly
-run into "there aren't enough atoms in the observable universe to represent the
-number of digits this number has" problems, and the higher hyperoperations only
-make it worse.
+practical reason to ever use the higher ones. Even with tetration, you run into
+"there aren't enough atoms in the observable universe to represent the number of
+digits this number has" problems without even trying, and the higher
+hyperoperations only make it worse.
 
 ## Inverses
 
