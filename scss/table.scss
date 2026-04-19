@@ -72,6 +72,10 @@ table {
         font-size: var(--font-size-sm);
     }
 
+    th .katex {
+        text-transform: unset;
+    }
+
     td {
         padding: var(--spacing-md) var(--spacing-lg);
         border-bottom: var(--border-light);
