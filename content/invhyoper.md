@@ -6,14 +6,17 @@ desc: I found a neat formula that recursively defines the inverses of the first 
 
 $$ H_{x}^{-1}(a,b)=H_{x}(a,H_{x+1}(b,-1)) $$
 
-The formula above is a neat way I found to constructively define the inverses of
-the first and second hyperoperations.
+The formula above is a neat way I found to define constructive inverses of the
+first and second hyperoperations using other hyperoperations.
 
 ## Hyperoperations
 
+First, a bit of background.
+
 The basic arithmetic operations (e.g. addition and multiplication) are defined
-in terms of each other. This shouldn't be news for you; you most certainly
-learned this in grade school. The technical math term for this is the
+in terms of each other. For example, multiplication is just repeatedly
+performing addition. This shouldn't be news for you; you most certainly learned
+this in grade school. The technical math term for this is the
 [hyperoperation sequence](https://en.wikipedia.org/wiki/Hyperoperation).
 
 ### Successor
@@ -248,7 +251,7 @@ other hyperoperation or inverse hyperoperation below tetration.
 
 For starters, logarithms often produce
 [transcendental](https://en.wikipedia.org/wiki/Transcendental_number) numbers as
-results. While you can construct equations that use logarithms and use only
+results. While you can construct equations that use logarithms and only include
 normal numbers (e.g. $\log_4(64) = 3$), their default behavior is to spew
 transcendental numbers.
 
@@ -345,12 +348,14 @@ that isn't circular or assertive, I would really really love to hear it. Please
 
 ## Conclusion
 
-I'm obviously not the first person to discover "my" formula, though I did at
-least discover it independently.
+I'm 99.99% sure that I'm not the first person to discover "my" formula, though I
+did at least discover it independently and I couldn't find my exact formulation
+anywhere online.
 
 The fact that you can construct each of the arithmetic operations in terms of
 the others is delightful to me (examples below), and I thought that the pattern
-in the definitions of subtraction and division was interesting.
+in the definitions of subtraction and division was interesting, so I formalized
+it.
 
 $$
 \begin{aligned}
