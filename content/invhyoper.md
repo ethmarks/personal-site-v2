@@ -98,9 +98,10 @@ the observable universe.
 
 In fact, if each atom in the observable universe contained its own observable
 universe, and each sub-atom in those observable universes contained its own
-observable universe, and this universe nesting process repeated for 25 times in
-total, the total number of atoms would _still_ be less than the number of digits
-in that number. By over 100 orders of magnitude.
+observable universe, and this nesting process repeated for 25 times in total,
+the total number of atoms would _still_ be less than the number of digits in
+that number.
+[By over 100 orders of magnitude](https://www.wolframalpha.com/input?i=log10%28log10%285%5E%285%5E%285%5E5%29%29%29%29+-+log10%28%2810%5E80%29%5E%281%2B25%29%29).
 
 Tetration doesn't mess around.
 
