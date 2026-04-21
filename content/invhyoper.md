@@ -33,12 +33,12 @@ through the successor function $b$ times. Here's an example:
 
 $$
 \begin{aligned}
-5+4 &= H_1(5, 4) \\
-    &= H_0(H_0(H_0(H_0(5)))) \\
-    &= H_0(H_0(H_0(6))) \\
-    &= H_0(H_0(7)) \\
-    &= H_0(8) \\
-    &= 9
+5+4       &= H_1(5, 4) \\
+1+1+1+1+5 &= H_0(H_0(H_0(H_0(5)))) \\
+1+1+1+6   &= H_0(H_0(H_0(6))) \\
+1+1+7     &= H_0(H_0(7)) \\
+1+8       &= H_0(8) \\
+         &= 9
 \end{aligned}
 $$
 
@@ -50,11 +50,11 @@ adding $a$ to itself $b$ times. Here's an example:
 
 $$
 \begin{aligned}
-5 \times 4  &= H_2(5, 4) \\
-            &= H_1(5,H_1(5,H_1(5,5))) \\
-            &= H_1(5,H_1(5,10)) \\
-            &= H_1(5,15) \\
-            &= 20
+5 \times 4 &= H_2(5, 4) \\
+5+5+5+5    &= H_1(5,H_1(5,H_1(5,5))) \\
+5+5+10     &= H_1(5,H_1(5,10)) \\
+5+15       &= H_1(5,15) \\
+           &= 20
 \end{aligned}
 $$
 
@@ -66,11 +66,11 @@ multiplying $a$ by itself $b$ times. Here's an example:
 
 $$
 \begin{aligned}
-5^4 &= H_3(5, 4) \\
-    &= H_2(5,H_2(5,H_2(5,5))) \\
-    &= H_2(5,H_2(5,25)) \\
-    &= H_2(5,125) \\
-    &= 625
+5^4                          &= H_3(5, 4) \\
+5 \times 5 \times 5 \times 5 &= H_2(5,H_2(5,H_2(5,5))) \\
+5 \times 5 \times 25         &= H_2(5,H_2(5,25)) \\
+5 \times 125                 &= H_2(5,125) \\
+                             &= 625
 \end{aligned}
 $$
 
@@ -82,19 +82,19 @@ $a$ to its own power $b$ times. Here's an example:
 
 $$
 \begin{aligned}
-{}^4 5  &= H_4(5, 4) \\
-        &= H_3(5,H_3(5,H_3(5,5))) \\
-        &= H_3(5,H_3(5,3125)) \\
-        &= H_3(5,5^{3125}) \\
-        &\approx 10^{10^{2184.1257}}
+{}^4 5               &= H_4(5, 4) \\
+5^{5^{5^{5}}}        &= H_3(5,H_3(5,H_3(5,5))) \\
+5^{5^{3125}}         &= H_3(5,H_3(5,3125)) \\
+5^{(10^{2184.2813})} &= H_3(5,10^{2184.2813}) \\
+                     &\approx 10^{10^{2184.1257}}
 \end{aligned}
 $$
 
 Unfortunately, I can't show you the exact value of the result of the example
 above, because it's simply too large.
 
-It's so large that there are more digits in that number than there are atoms in
-the observable universe.
+That number is so large that there are more digits in that number than there are
+atoms in the observable universe.
 
 In fact, if each atom in the observable universe contained its own observable
 universe, and each sub-atom in those observable universes contained its own
@@ -221,7 +221,7 @@ $$
 Aaaand stop right there. We just tried to use $H_4(b, -1)$, which means
 tetrating with a height of $-1$. That's not allowed.
 
-There's a case to be made that ${}^{-1} a=0$ for any $a$, but you run into
+There's a case to be made that ${}^{-1}b = 0$ for any $b$, but you run into
 contradictions if you assume this, similar to what happens if you divide by $0$.
 Most mathematicians agree that, for $H_4$ and up, the domain of the second
 argument is $b \geq 0$ in most cases.
