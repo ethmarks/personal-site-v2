@@ -5,13 +5,6 @@ stylesheets: ["/assets/post-index.css"]
 
 <h1 class="animated">{{ title }}</h1>
 <article class="animated">
-  <p>
-    I write explorations of niche topics I care about more than is strictly
-    reasonable: UTC's terrible design decisions, why truncated octahedrons make
-    good maps, how hypercomputers create ethical dilemmas, and other things that
-    don't come up in normal conversation.
-  </p>
-
   <nav class="post-links">
     {{
       for post of search.pages("layout=post.vto !unlisted=true", "published=desc")
