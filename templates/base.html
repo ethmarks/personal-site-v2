@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Ink</title>
+
+        <meta
+            name="description"
+            content="The creative writing collection of ethmarks's personal website "
+        />
+        <meta property="og:title" content="Ink" />
+        <meta
+            property="og:description"
+            content="The creative writing collection of ethmarks's personal website "
+        />
+
+        <link
+            rel="icon"
+            href="https://site-ethmarks.vercel.app/common/ethmarks.ico"
+            type="image/x-icon"
+        />
+        <link
+            rel="stylesheet"
+            href="https://site-ethmarks.vercel.app/common/ethmarks-rich.css"
+        />
+        <script
+            src="https://site-ethmarks.vercel.app/common/ethmarks.wc.js"
+            defer
+        ></script>
+        <script>
+          window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+        </script>
+        <script defer src="https://site-ethmarks.vercel.app/_vercel/insights/script.js"></script>
+
+        <link rel="stylesheet" href="{{ get_env(name="BASE_PATH", default="") | safe }}/style.css">
+    </head>
+    <body>
+        <eth-header active="ink"></eth-header>
+        {% block content %} {% endblock content %}
+        <eth-footer source="https://github.com/ethmarks/ink"></eth-footer>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+h1.single-title {
+    color: var(--color-text);
+    font-size: 40px;
+    margin-left: 0;
+}
+
+.subtitle {
+    font-family: var(--font-secondary);
+    color: var(--color-text-secondary);
+    margin-top: 0;
+}
+
+ul.pages-list {
+    list-style: none;
+    padding: 0;
+}
+
+li.page-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    background-image: radial-gradient(
+        circle,
+        var(--color-text-secondary) 1px,
+        transparent 1px
+    );
+    background-size: 8px 1em;
+    background-position: 0 bottom;
+    background-repeat: repeat-x;
+}
+
+.page-link {
+    background: var(--color-article);
+    padding-right: 4px;
+}
+
+.page-date {
+    font-style: italic;
+    color: var(--color-text-secondary);
+    background: var(--color-article);
+    padding-left: 4px;
+}
+
+main.single > article {
+    margin-bottom: 0;
+}
+p.license {
+    font-style: italic;
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-md);
+    margin: var(--spacing-xs) var(--spacing-sm) var(--article-margin-vertical)
+        var(--spacing-sm);
+}
+p.license.animated {
+    animation: articleEntrance 0.6s var(--transition-timing);
+}
+
+/* I want the copyright notice to occupy on a single line, but the full version
+   overflows slightly on mobile. My solution is to just hide a specific section
+   of useful-but-not-necessary text on mobile to prevent an overflow, but to
+   still show it on desktop */
+@media (max-width: 450px) {
+    .desktop-only {
+        display: none;
+    }
+}

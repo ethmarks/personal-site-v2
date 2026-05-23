@@ -1,0 +1,13 @@
+# The URL the site will be built for
+base_url = "https://ink-ethmarks.vercel.app/ink"
+
+title = "Ink"
+
+output_dir = "dist"
+
+[markdown]
+
+[markdown.highlighting]
+theme = "catppuccin-mocha"
+
+[extra]
