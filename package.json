@@ -1,0 +1,20 @@
+{
+  "name": "projects",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "clean": "rm -rf .output .nuxt dist"
+  },
+  "dependencies": {
+    "image-size": "^2.0.2",
+    "nuxt": "^4.3.0",
+    "nuxt-shiki": "0.3.2",
+    "vue": "^3.5.27",
+    "vue-router": "^4.6.4"
+  }
+}
