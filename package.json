@@ -1,0 +1,26 @@
+{
+  "name": "ethmarks-404",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The 404 page of ethmarks's personal website",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethmarks/404.git"
+  },
+  "author": "Ethan Marks <ethmarks.dev@gmail.com> (https://github.com/ethmarks)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ethmarks/404/issues"
+  },
+  "homepage": "https://github.com/ethmarks/404#readme",
+  "devDependencies": {
+    "vite": "^7.3.1",
+    "vite-plugin-singlefile": "^2.3.0"
+  }
+}
