@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "pnpm build && curl -s https://404-ethmarks.vercel.app/ -o dist/404.html",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/about/"
+    }
+  ]
+}
