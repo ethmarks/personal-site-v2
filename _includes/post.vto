@@ -1,0 +1,39 @@
+---
+layout: layout.vto
+stylesheets: ["/assets/post-single.css"]
+scripts: ["https://site-ethmarks.vercel.app/common/overflow.js"]
+---
+
+<div class="frontmatter">
+  <h1 class="animated title">{{ title }}</h1>
+  {{ await comp.postInfo({ created, published, readingInfo }) }}
+  {{
+    set externalLinks = [
+      { url: codepen, icon: "codepen", label: "CodePen" },
+      { url: colab, icon: "colab", label: "Colab Notebook" },
+      { url: github, icon: "github", label: "GitHub Repo" },
+      { url: link, icon: "link", label: "Link" },
+      { url: webpage, icon: "webpage", label: "Webpage" },
+      { url: wikipedia, icon: "wikipedia", label: "Wikipedia Article" },
+    ].filter((item) => item.url)
+  }}
+
+  {{- if externalLinks.length }}
+    <div class="external-link-row">
+      {{- for item of externalLinks }}
+        <a class="external-link animated" href="{{ item.url }}">
+          <img
+            src="/assets/icons/{{ item.icon }}.svg"
+            alt="{{ item.label }} icon"
+            inline
+          />
+          <span>{{ item.label }}</span>
+        </a>
+      {{- /for }}
+    </div>
+  {{- /if }}
+</div>
+
+<article class="animated">
+  {{ content }}
+</article>

@@ -1,0 +1,32 @@
+---
+url: /rss.xml
+layout: null
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>{{ title }}</title>
+    <description>{{ desc }}</description>
+    <link>{{ canonUrl }}</link>
+    <atom:link href="{{ canonUrl }}/rss.xml" rel="self" type="application/rss+xml"/>
+    <language>en-us</language>
+    <lastBuildDate>{{ new Date().toUTCString() }}</lastBuildDate>
+    {{ for post of search.pages("layout=post.vto !unlisted=true", "published=desc") }}
+    {{- set renderedContent = post.content |> md }}
+    {{- set absoluteContent = renderedContent.replace(/(src|href)="\/([^"]*)"/g, `$1="${canonUrl}/$2"`) }}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>{{ canonUrl }}{{ post.url.replace(/\/$/, "") }}</link>
+      <guid isPermaLink="true">{{ canonUrl }}{{ post.url.replace(/\/$/, "") }}</guid>
+      <description>{{ post.desc }}</description>
+      <pubDate>{{ post.published.toUTCString() }}</pubDate>
+      <author>ethmarks.dev@gmail.com (Ethan Marks)</author>
+      {{ if post.img }}
+      <enclosure url="{{ canonUrl }}{{ post.img }}" type="image/webp"/>
+      {{ /if }}
+      <content:encoded><![CDATA[{{ absoluteContent }}]]></content:encoded>
+    </item>
+    {{ /for }}
+  </channel>
+</rss>

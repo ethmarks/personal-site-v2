@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ desc }}" />
+
+    <link rel="canonical" href='{{ canonUrl + url.replace(/\/$/, "") }}' />
+    <meta
+      property="og:type"
+      content='{{ (url === "/") ? "website" : "article" }}'
+    />
+    <meta property="og:title" content="{{ title }}" />
+    <meta
+      property="og:description"
+      content="{{ desc }}"
+    />
+    <meta
+      property="og:image"
+      content="{{ canonUrl + img }}"
+    />
+    <meta
+      property="og:url"
+      content='{{ canonUrl + url.replace(/\/$/, "") }}'
+    />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta
+      name="twitter:description"
+      content="{{ desc }}"
+    />
+    <meta
+      name="twitter:image"
+      content="{{ canonUrl + img }}"
+    />
+
+    <link
+      rel="icon"
+      href="https://site-ethmarks.vercel.app/common/ethmarks.ico"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://site-ethmarks.vercel.app/common/ethmarks-rich.css"
+    />
+
+    {{ for stylesheetURL of stylesheets }}
+      <link rel="stylesheet" href="{{ stylesheetURL }}" />
+    {{ /for }}
+
+    {{ for scriptURL of scripts }}
+      <script src="{{ scriptURL }}" defer></script>
+    {{ /for }}
+
+    <script
+      src="https://site-ethmarks.vercel.app/common/ethmarks.wc.js"
+      defer
+    ></script>
+    <script>
+      window.va = window.va || function () {
+        (window.vaq = window.vaq || []).push(arguments);
+      };
+    </script>
+    <script
+      defer
+      src="https://site-ethmarks.vercel.app/_vercel/insights/script.js"
+    ></script>
+  </head>
+  <body>
+    <eth-header active="posts">
+      {{ remote.header |> safe }}
+    </eth-header>
+
+    <main>{{ content }}</main>
+
+    <eth-footer source="https://github.com/ethmarks/posts">
+      {{ remote.footer |> safe }}
+    </eth-footer>
+  </body>
+</html>

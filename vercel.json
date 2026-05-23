@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "echo 'Skipping default install...'",
+  "buildCommand": "curl -fsSL https://deno.land/install.sh | sh && /vercel/.deno/bin/deno task build && curl -s https://404-ethmarks.vercel.app/ -o dist/404.html",
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/posts"
+    }
+  ]
+}

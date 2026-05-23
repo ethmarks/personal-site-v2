@@ -1,0 +1,24 @@
+---
+layout: layout.vto
+stylesheets: ["/assets/post-index.css"]
+---
+
+<h1 class="animated">{{ title }}</h1>
+<article class="animated">
+  <nav class="post-links">
+    {{
+      for post of search.pages("layout=post.vto !unlisted=true", "published=desc")
+    }}
+      <a class="post-link" href='{{ post.url.replace(/\/$/, "") }}'>
+        <h3>{{ post.title }}</h3>
+        {{
+          await comp.postInfo({
+            created: post.created,
+            published: post.published,
+            readingInfo: post.readingInfo,
+          })
+        }}
+      </a>
+    {{ /for }}
+  </nav>
+</article>
