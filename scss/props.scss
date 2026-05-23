@@ -1,0 +1,236 @@
+@use "fonts.scss";
+
+@use "sass:string";
+
+@function clr-mix($color-var, $target, $percent: 95%) {
+    $target-str: #{$target};
+    $target-value: if(
+        sass(string.index($target-str, "--") == 1): var(#{$target}) ;
+            else: $target,
+    );
+    @return color-mix(
+        in srgb,
+        var(#{$color-var}) #{$percent},
+        #{$target-value}
+    );
+}
+
+@function clr-alpha($color-var, $opacity: 0.1) {
+    $percent: $opacity * 100%;
+    $color-str: #{$color-var};
+    $base: if(
+        sass(string.index($color-str, "--") == 1): var(#{$color-var}) ;
+            else: $color-var,
+    );
+    @return color-mix(in srgb, #{$base} #{$percent}, transparent);
+}
+
+:root {
+    // =========================================================================
+    // COLOR
+    // =========================================================================
+
+    --color-background: #121212;
+
+    --color-accent: #8fdfd4;
+
+    --color-accent-light: #{clr-mix(--color-accent, white, 95%)};
+    --color-accent-dark: #{clr-mix(--color-accent, black, 90%)};
+
+    --color-accent-transparent-10: #{clr-alpha(--color-accent, 0.1)};
+    --color-accent-transparent-15: #{clr-alpha(--color-accent, 0.15)};
+    --color-accent-transparent-20: #{clr-alpha(--color-accent, 0.2)};
+    --color-accent-transparent-30: #{clr-alpha(--color-accent, 0.3)};
+    --color-accent-transparent-40: #{clr-alpha(--color-accent, 0.4)};
+
+    --color-text: white;
+    --color-text-inverse: #121212;
+    --color-text-secondary: #{clr-mix(--color-text, black, 70%)};
+
+    --color-link: var(--color-accent-light);
+    --color-link-hover: var(--color-text);
+    --color-link-underline: #{clr-alpha(--color-accent, 0.3)};
+    --color-link-underline-hover: var(--color-accent);
+    --color-focus-outline: var(--color-accent-light);
+
+    --color-article: rgb(30, 30, 30);
+    --color-panel: rgb(31, 31, 31);
+    --color-panel-zebra: #{clr-mix(--color-panel, black, 90%)};
+    --color-panel-dark: #{clr-mix(--color-panel, black, 75%)};
+    --color-panel-hover: #{clr-mix(--color-panel, white, 96%)};
+    --color-panel-hover-subtle: #{clr-mix(--color-panel, white, 99%)};
+
+    --color-card: rgba(40, 40, 40, 0.8);
+    --color-card-hover: rgba(50, 50, 50, 0.9);
+
+    --color-code-bg: #191a1c;
+
+    --mint-gradient: linear-gradient(
+        135deg,
+        var(--color-accent),
+        var(--color-text)
+    );
+
+    --mint-blend: #{clr-mix(--color-accent, --color-text, 75%)};
+
+    // =========================================================================
+    // BORDER
+    // =========================================================================
+
+    --color-border: white;
+
+    --color-border-standard: #{clr-alpha(--color-border, 0.1)};
+    --color-border-light: #{clr-alpha(--color-border, 0.05)};
+
+    --border-none: 1px solid transparent;
+    --border-standard: 1px solid var(--color-border-standard);
+    --border-standard-2px: 2px solid var(--color-border-standard);
+    --border-light: 1px solid var(--color-border-light);
+    --border-light-2px: 2px solid var(--color-border-light);
+    --border-accent: 1px solid var(--color-accent);
+    --border-accent-2px: 2px solid var(--color-accent);
+    --border-accent-t: 1px solid var(--color-accent-transparent-30);
+    --border-accent-t-2px: 2px solid var(--color-accent-transparent-30);
+
+    // =========================================================================
+    // FONT
+    // =========================================================================
+
+    --font-primary: "Nunito", sans-serif;
+    --font-secondary: "Sen", sans-serif;
+    --font-monospace: "Fira Code", monospace;
+
+    --font-weight-normal: 400;
+    --font-weight-light: 300;
+    --font-weight-semibold: 500;
+    --font-weight-bold: 600;
+    --font-weight-code: 400;
+
+    --font-size-base: 19px;
+    --font-size-xs: 0.8rem;
+    --font-size-sm: 0.9rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.1rem;
+    --font-size-h1: clamp(1rem, 7vw, 3rem);
+    --font-size-h2: 1.8rem;
+    --font-size-h3: 1.5rem;
+    --font-size-h4: 1.3rem;
+
+    // =========================================================================
+    // SPACING
+    // =========================================================================
+
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 0.75rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+
+    --frontmatter-margin-left: var(--spacing-xs);
+    --margin-indent: 40px;
+
+    // =========================================================================
+    // RADIUS
+    // =========================================================================
+
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --radius-round: 18px;
+
+    // =========================================================================
+    // SHADOW
+    // =========================================================================
+
+    --color-shadow-standard: #{clr-alpha(black, 0.2)};
+    --color-shadow-accent: var(--color-accent-transparent-30);
+    --color-shadow-accent-hover: var(--color-accent-transparent-40);
+
+    --shadow-standard: 0 4px 15px #{clr-alpha(black, 0.2)};
+    --shadow-standard-hover: 0 4px 30px #{clr-alpha(black, 0.3)};
+    --shadow-accent: 0 4px 12px var(--color-shadow-accent);
+    --shadow-accent-hover: 0 0 16px var(--color-shadow-accent-hover);
+    --shadow-birthday:
+        0 0 20px rgba(255, 107, 107, 0.3), 0 0 40px rgba(78, 205, 196, 0.2),
+        0 0 60px rgba(69, 183, 209, 0.1);
+
+    // =========================================================================
+    // TRANSITION
+    // =========================================================================
+
+    --transition-duration: 0.3s;
+    --transition-duration-fast: 0.2s;
+    --transition-timing: ease;
+    --transition-default: all var(--transition-duration-fast)
+        var(--transition-timing);
+    --transition-transform-shadow:
+        transform var(--transition-duration) var(--transition-timing),
+        box-shadow var(--transition-duration) var(--transition-timing);
+    --transition-transform: transform var(--transition-duration)
+        var(--transition-timing);
+    --transition-background: background-color var(--transition-duration-fast)
+        var(--transition-timing);
+    --child-animation-delay: 0s;
+
+    // =========================================================================
+    // MEDIA SIZES
+    // =========================================================================
+
+    --media-width: 100%;
+
+    --max-media-height: 800px;
+    --max-media-height-verytall: 1000px;
+
+    // =========================================================================
+    // LAYOUT
+    // =========================================================================
+
+    --body-bg-gradient:
+        radial-gradient(
+            circle at 10% 10%,
+            #{clr-alpha(--color-accent, 0.15)},
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 90% 80%,
+            #{clr-alpha(--color-accent, 0.12)},
+            transparent 50%
+        ),
+        var(--color-background);
+
+    --article-margin-vertical: clamp(1rem, 4vw, 1.875rem);
+
+    --main-width: 850px;
+    --main-padding: 0.2em;
+    --main-margin-top: 5rem;
+    --main-margin-top-mobile: 3.5rem;
+    --main-margin-sides: auto;
+
+    // =========================================================================
+    // FOOTER
+    // =========================================================================
+
+    --footer-bg: #{clr-mix(--color-background, white, 90%)};
+    --footer-border-color: rgba(255, 255, 255, 0.18);
+    --footer-border: 1px solid var(--footer-border-color);
+    --footer-radius: var(--radius-lg);
+    --footer-icon-gap: var(--spacing-xs);
+    --footer-icon-gap-mobile: var(--spacing-md);
+    --footer-padding-block: 7px;
+    --footer-padding-sides: 15px;
+    --footer-padding-sides-mobile: 25px;
+    --footer-margin-top: 0px;
+    --footer-margin-sides: 10px;
+    --footer-margin-bottom: 5px;
+
+    // =========================================================================
+    // MOBILE
+    // =========================================================================
+
+    @media (max-width: 768px) {
+        --main-margin-top: var(--main-margin-top-mobile);
+        --footer-padding-sides: var(--footer-padding-sides-mobile);
+        --footer-icon-gap: var(--footer-icon-gap-mobile);
+    }
+}

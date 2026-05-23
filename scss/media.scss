@@ -1,0 +1,38 @@
+@use "props.scss";
+
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+    font-style: italic;
+    color: var(--color-text-secondary);
+
+    figcaption {
+        width: fit-content;
+    }
+}
+
+.responsive {
+    max-width: var(--media-width);
+    max-height: var(--max-media-height);
+    width: auto;
+    height: auto;
+    border-radius: var(--radius-xl);
+    border: var(--border-standard);
+
+    &.media-verytall {
+        max-height: var(--max-media-height-verytall);
+    }
+}
+
+iframe {
+    width: var(--media-width) !important;
+    height: 500px !important;
+}
+
+.noborder {
+    border: none;
+}

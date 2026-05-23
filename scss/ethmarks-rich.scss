@@ -1,0 +1,12 @@
+// This entry stylesheet provides the styles for rich text in the ethmarks
+// design system, such as tables and media
+
+@forward "ethmarks.scss";
+@forward "blockquote.scss";
+@forward "code.scss";
+@forward "table.scss";
+@forward "details.scss";
+@forward "media.scss";
+@forward "frontmatter.scss";
+@forward "external-link.scss";
+@forward "katex.scss";

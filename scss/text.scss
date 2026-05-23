@@ -1,0 +1,110 @@
+@use "props.scss";
+@use "keyframes.scss";
+
+p,
+li {
+    font-weight: var(--font-weight-normal);
+    word-break: normal;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-secondary);
+    scroll-margin-top: calc(var(--main-margin-top) + var(--spacing-lg));
+}
+
+h1 {
+    width: fit-content;
+    font-size: var(--font-size-h1);
+    flex-shrink: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    font-weight: var(--font-weight-bold);
+    color: var(--mint-blend);
+    background: var(--mint-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @media (max-width: 768px) {
+        margin-left: var(--frontmatter-margin-left);
+    }
+
+    &.chromium-nomint {
+        @supports not (-moz-appearance: none) {
+            background: none;
+            background-clip: none;
+            -webkit-background-clip: none;
+            -webkit-text-fill-color: unset;
+        }
+    }
+
+    &.animated {
+        animation: slideInFromLeft 0.5s 0.1s var(--transition-timing) both;
+    }
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+}
+
+h4 {
+    font-size: var(--font-size-h4);
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: underline;
+    text-decoration-color: var(--color-link-underline);
+    transition: text-decoration-color var(--transition-duration-fast)
+        var(--transition-timing);
+
+    &.external::after {
+        content: "🡵";
+        display: inline-block;
+        vertical-align: super;
+        font-size: 50%;
+        line-height: 1em;
+    }
+
+    &:hover {
+        text-decoration-color: var(--color-link-underline-hover);
+    }
+
+    &:focus-visible {
+        outline: 2px solid var(--color-focus-outline);
+        text-decoration-color: var(--color-link-underline-hover);
+    }
+}
+
+ul {
+    list-style: disc inside;
+    padding-left: var(--spacing-lg);
+
+    & li {
+        line-height: 1.6;
+        transition: color var(--transition-duration-fast)
+            var(--transition-timing);
+    }
+}
+
+.mint {
+    background: var(--mint-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nomint {
+    background: none;
+    background-clip: none;
+    -webkit-background-clip: none;
+    -webkit-text-fill-color: unset;
+}

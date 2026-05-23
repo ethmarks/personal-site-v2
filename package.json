@@ -1,0 +1,30 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "Common assets for my personal website ",
+  "type": "module",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node internal/serve.js",
+    "clean": "rm -rf dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethmarks/common.git"
+  },
+  "author": "Ethan Marks <ethmarks.dev@gmail.com> (https://github.com/ethmarks)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ethmarks/common/issues"
+  },
+  "homepage": "https://github.com/ethmarks/common#readme",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "jsdom": "^27.4.0",
+    "rollup": "^4.54.0",
+    "sass": "^1.97.1"
+  }
+}

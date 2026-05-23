@@ -1,0 +1,49 @@
+@use "props.scss";
+@use "keyframes.scss";
+@use "reduced-motion.scss";
+
+.frontmatter {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-self: flex-start;
+
+    @media (max-width: 768px) {
+        margin-left: var(--frontmatter-margin-left);
+    }
+
+    & .title {
+        margin-left: 0;
+        max-width: clamp(300px, 85vw, 800px);
+    }
+
+    & .info {
+        margin-bottom: var(--spacing-sm);
+        font-family: var(--font-secondary);
+        font-size: 1.2rem;
+        font-style: italic;
+        color: var(--color-accent);
+
+        &.animated {
+            animation: slideInFromLeft 0.8s var(--transition-timing) both;
+            @media (max-width: 768px) {
+                animation: slideInFromLeft 0.5s 0.2s var(--transition-timing)
+                    both;
+            }
+        }
+
+        & .separator {
+            font-style: normal;
+        }
+    }
+
+    & .external-link-row {
+        justify-content: left;
+        align-self: start;
+        margin-top: var(--spacing-md);
+
+        & a.external-link {
+            padding: 0.8em 1.2em;
+        }
+    }
+}

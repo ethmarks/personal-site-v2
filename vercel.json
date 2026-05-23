@@ -1,0 +1,23 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "pnpm install",
+  "buildCommand": "pnpm build",
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/common"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/common/cors-proxy/:path*",
+      "destination": "https://site-ethmarks.vercel.app/:path*"
+    },
+    {
+      "source": "/common/cors-proxy/",
+      "destination": "https://site-ethmarks.vercel.app/"
+    }
+  ]
+}

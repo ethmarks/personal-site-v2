@@ -1,0 +1,19 @@
+@media (prefers-reduced-motion: reduce) {
+    .animated {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    header {
+        transform: translateX(-50%) translateY(0) translate3d(0, 0, 0) !important;
+    }
+}
+
+::view-transition-new(*) {
+    .animated {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
