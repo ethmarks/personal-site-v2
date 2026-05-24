@@ -1,12 +1,12 @@
 ---
-const assetsURL = "/common";
+// const assetsURL = "/common";
 
-const headerHTML = await fetch(`${assetsURL}/header-home.wc.html`).then((r) =>
-    r.text(),
-);
-const footerHTML = await fetch(`${assetsURL}/footer.wc.html`).then((r) =>
-    r.text(),
-);
+// const headerHTML = await fetch(`${assetsURL}/header-home.wc.html`).then((r) =>
+//     r.text(),
+// );
+// const footerHTML = await fetch(`${assetsURL}/footer.wc.html`).then((r) =>
+//     r.text(),
+// );
 
 const canonUrl = "https://site-ethmarks.vercel.app";
 const title = "Ethan Marks";
@@ -38,34 +38,30 @@ const sourceURL = "https://github.com/ethmarks/site";
 
         <link
             rel="preload"
-            href={`${assetsURL}/Nunito-latin.woff2`}
+            href="/common/Nunito-latin.woff2"
             as="font"
             type="font/woff2"
             crossorigin
         />
         <link
             rel="preload"
-            href={`${assetsURL}/Sen-latin.woff2`}
+            href="/common/Sen-latin.woff2"
             as="font"
             type="font/woff2"
             crossorigin
         />
 
-        <link
-            rel="icon"
-            href={`${assetsURL}/ethmarks.ico`}
-            type="image/x-icon"
-        />
-        <link rel="stylesheet" href={`${assetsURL}/ethmarks.css`} />
-        <script src={`${assetsURL}/ethmarks.wc.js`} is:inline defer></script>
+        <link rel="icon" href={`/common/ethmarks.ico`} type="image/x-icon" />
+        <link rel="stylesheet" href={`/common/ethmarks.css`} />
+        <script src="/common/ethmarks.wc.js" is:inline defer></script>
     </head>
     <body>
         <eth-header active="home">
-            <Fragment set:html={headerHTML} />
+            <!-- <Fragment set:html={headerHTML} /> -->
         </eth-header>
         <slot />
         <eth-footer source={sourceURL}>
-            <Fragment set:html={footerHTML} />
+            <!-- <Fragment set:html={footerHTML} /> -->
         </eth-footer>
     </body>
 </html>

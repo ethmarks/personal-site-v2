@@ -1,14 +1,14 @@
-const assetsURL: string = "/common";
+// const assetsURL: string = "/common";
 
-const [headerHTML, footerHTML]: string[] = await Promise.all([
-  fetch(`${assetsURL}/header-posts.wc.html`).then((r) => r.text()),
-  fetch(`${assetsURL}/footer.wc.html`).then((r) => r.text()),
-]);
+// const [headerHTML, footerHTML]: string[] = await Promise.all([
+//   fetch(`${assetsURL}/header-posts.wc.html`).then((r) => r.text()),
+//   fetch(`${assetsURL}/footer.wc.html`).then((r) => r.text()),
+// ]);
 
-export const remote: { header: string; footer: string } = {
-  header: headerHTML,
-  footer: footerHTML,
-};
+// export const remote: { header: string; footer: string } = {
+//   header: headerHTML,
+//   footer: footerHTML,
+// };
 
 export const canonUrl: string = "https://site-ethmarks.vercel.app/posts";
 export const title: string = "Posts";
