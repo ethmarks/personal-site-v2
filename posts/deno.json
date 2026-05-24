@@ -55,5 +55,5 @@
       "exclude": ["no-import-prefix"]
     }
   },
-  "lock": false
+  "nodeModulesDir": "auto"
 }

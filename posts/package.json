@@ -1,0 +1,9 @@
+{
+  "name": "ethmarks-posts",
+  "scripts": {
+    "build": "deno run build"
+  },
+  "dependencies": {
+    "deno": "^2.7.14"
+  }
+}
