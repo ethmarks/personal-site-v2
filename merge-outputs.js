@@ -5,7 +5,7 @@ async function bundle() {
 
   await fs.copy("./site/dist", "./dist");
 
-  ["about", "posts", "projects", "ink"].forEach(async (section) => {
+  ["about", "posts", "projects", "ink", "common"].forEach(async (section) => {
     await fs.copy(`./${section}/dist`, `./dist/${section}`, {
       dereference: true,
     });
