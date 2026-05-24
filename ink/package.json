@@ -1,0 +1,9 @@
+{
+  "name": "ethmarks-ink",
+  "scripts": {
+    "build": "zola build"
+  },
+  "dependencies": {
+    "zola-bin": "^2.1.0"
+  }
+}
