@@ -1,0 +1,10 @@
+{
+  "name": "personal-site-archive",
+  "scripts": {
+    "build:all": "turbo run build"
+  },
+  "devDependencies": {
+    "turbo": "^2.9.14"
+  },
+  "packageManager": "pnpm@10.28.0"
+}
