@@ -1,0 +1,8 @@
+packages:
+  - "site/"
+  - "about/"
+  - "posts/"
+  - "projects/"
+  - "ink/"
+  - "404/"
+  - "common/"
