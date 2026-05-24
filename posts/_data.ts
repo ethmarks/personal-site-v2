@@ -1,4 +1,4 @@
-const assetsURL: string = "https://site-ethmarks.vercel.app/common";
+const assetsURL: string = "/common";
 
 const [headerHTML, footerHTML]: string[] = await Promise.all([
   fetch(`${assetsURL}/header-posts.wc.html`).then((r) => r.text()),

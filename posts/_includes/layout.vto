@@ -39,12 +39,12 @@
 
     <link
       rel="icon"
-      href="https://site-ethmarks.vercel.app/common/ethmarks.ico"
+      href="/common/ethmarks.ico"
       type="image/x-icon"
     />
     <link
       rel="stylesheet"
-      href="https://site-ethmarks.vercel.app/common/ethmarks-rich.css"
+      href="/common/ethmarks-rich.css"
     />
 
     {{ for stylesheetURL of stylesheets }}
@@ -56,7 +56,7 @@
     {{ /for }}
 
     <script
-      src="https://site-ethmarks.vercel.app/common/ethmarks.wc.js"
+      src="/common/ethmarks.wc.js"
       defer
     ></script>
     <script>
@@ -64,10 +64,6 @@
         (window.vaq = window.vaq || []).push(arguments);
       };
     </script>
-    <script
-      defer
-      src="https://site-ethmarks.vercel.app/_vercel/insights/script.js"
-    ></script>
   </head>
   <body>
     <eth-header active="posts">

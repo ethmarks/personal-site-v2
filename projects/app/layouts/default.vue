@@ -2,7 +2,7 @@
 const route = useRoute();
 
 const canonUrl = "https://site-ethmarks.vercel.app/projects";
-const assetsURL = "https://site-ethmarks.vercel.app/common";
+const assetsURL = "/common";
 const sourceURL = "https://github.com/ethmarks/projects";
 
 const pageTitle = computed(() => route.meta.title || "Projects");
@@ -49,10 +49,6 @@ useHead({
     script: [
         { src: `${assetsURL}/ethmarks.wc.js`, defer: true },
         { src: `${assetsURL}/overflow.js`, defer: true },
-        {
-            src: `https://site-ethmarks.vercel.app/_vercel/insights/script.js`,
-            defer: true,
-        },
         {
             innerHTML:
                 "window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };",

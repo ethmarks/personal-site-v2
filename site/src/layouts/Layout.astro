@@ -1,5 +1,5 @@
 ---
-const assetsURL = "https://site-ethmarks.vercel.app/common";
+const assetsURL = "/common";
 
 const headerHTML = await fetch(`${assetsURL}/header-home.wc.html`).then((r) =>
     r.text(),
@@ -69,8 +69,3 @@ const sourceURL = "https://github.com/ethmarks/site";
         </eth-footer>
     </body>
 </html>
-
-<script>
-    import { inject } from "@vercel/analytics";
-    inject();
-</script>

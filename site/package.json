@@ -24,8 +24,5 @@
     "astro": "^5.16.8",
     "sass": "^1.97.3",
     "sharp": "^0.34.5"
-  },
-  "dependencies": {
-    "@vercel/analytics": "^1.6.1"
   }
 }
