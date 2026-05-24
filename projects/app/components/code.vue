@@ -45,7 +45,8 @@ const extractedCode = computed(() => {
 
 // recalculate overflow classes after a delay
 setTimeout(() => {
-    window.dispatchEvent(new Event("recalcOverflow"));
+    // only run if we aren't prerendering
+    if (!process.prerender) window.dispatchEvent(new Event("recalcOverflow"));
 }, 300);
 </script>
 
