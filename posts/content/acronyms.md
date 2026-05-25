@@ -4,9 +4,16 @@ published: 2025-06-09
 desc: A list of false etymology acronyms I came up with
 ---
 
-Science fun fact: the word "laser" is actually an acronym. When the first prototype lasers were built in the early 1960s, the process was called "light amplification by stimulated emission of radiation". Understandably, people didn't really want to pronounce that mouthful, so the term was acronymized to "LASER". When lasers became commodities, the capitalization was dropped and "laser" became a common noun.
+Science fun fact: the word "laser" is actually an acronym. When the first
+prototype lasers were built in the early 1960s, the process was called "light
+amplification by stimulated emission of radiation". Understandably, people
+didn't really want to pronounce that mouthful, so the term was acronymized to
+"LASER". When lasers became commodities, the capitalization was dropped and
+"laser" became a common noun.
 
-What's interesting is that this phenomenon has happened a lot in English. Lots of words that are nowadays treated as common nouns were originally technical acronyms. Here's a list of a few of my favorites.
+What's interesting is that this phenomenon has happened a lot in English. Lots
+of words that are nowadays treated as common nouns were originally technical
+acronyms. Here's a list of a few of my favorites.
 
 | Word     | Original acronym                                                            |
 | -------- | --------------------------------------------------------------------------- |
@@ -31,6 +38,7 @@ What's interesting is that this phenomenon has happened a lot in English. Lots o
 | ETHAN    | Enigmatic Thinker Harboring Amazing Notions                                 |
 | ETHAN    | Excessively Talkative, Horribly Annoying Nuisance                           |
 
-_Disclaimer: I made all of these up. This article is a joke. Please don't spread etymology misinformation._
+_Disclaimer: I made all of these up. This article is a joke. Please don't spread
+etymology misinformation._
 
 ~Ethan
