@@ -1,0 +1,99 @@
+# personal-site-v2
+
+This repo archives of the second version of my personal website.
+
+## Polyrepo Architecture
+
+This site was originally developed with its source code split across 7 different
+repos, each with a different framework. My reasoning for doing this is that I
+wanted to be able to experiment with different frameworks, but at the time I
+didn't want to use a monorepo orchestrator. So I put each section of the site in
+a different repo and had each one independently deploy to a different URL. Then
+I used Vercel Rewrites as a reverse proxy to join all the sections together.
+
+For ease of archiving, I've merged all 7 repos into this monorepo using the
+following bash commands (repeated for all 7 repos):
+
+```bash
+git remote add temp-remote https://github.com/ethmarks/site.git
+git remote fetch temp-remote
+git merge temp-remote/main --allow-unrelated-histories -m "Merge ethmarks/site history"
+shopt -s extglob
+git mv !(site|about|posts|ink|projects|common|404) site/
+git remote remove temp-remote
+```
+
+## Sections
+
+### site
+
+This section is the landing page. I wanted to make it as performant and
+lightweight as possible. I managed to get the full page size down to 314
+kilobytes, and the initial load down to 242 kilobytes kilobytes, despite having
+9 images and more than 200 CSS rules.
+
+I chose [**Astro**](https://astro.build/) for the framework, because of its
+focus on performance and page speed. I enjoyed using Astro. I especially liked
+Astro Components, which are basically just Svelte components but without the
+runtime overhead.
+
+### about
+
+This section is my About Me page. I wanted to keep the code simple, but still
+wanted to add touches of reactivity for things like the live-updating commit
+counter.
+
+I considered using [Alpine.js](https://alpinejs.dev/) because I already had some
+experience with it, but I went with
+[**petite-vue**](https://github.com/vuejs/petite-vue) because I wanted an excuse
+to learn Vue syntax. I wrote the whole thing as (mostly) a single HTML file with
+a bit of petite-vue sprinkled in, and I bundled it using Vite.
+
+## posts
+
+This section is where I hosted my articles. I wanted a lot of control over how
+the Markdown source was processed, and I wanted it to use JS so I wouldn't have
+to learn a new programming language just to modify the rendering pipeline.
+
+I tried to use [11ty](https://www.11ty.dev/), but I found it frustrating and
+unpleasant to use, so I switched to [**Lume**](https://lume.land/). Of all the
+frameworks I've used, Lume is my favorite. It's very feature-rich out of the
+box, but it's also highly extensible. As an added bonus, Lume was my first
+introduction to Deno, an alternative JS runtime, which I absolutely love.
+
+## ink
+
+This section is where I hosted my creative writing. I wanted the technical side
+to be as absolutely simple as possible so that the focus would be on the
+content.
+
+I chose [**Zola**](https://www.getzola.org/) because it was the SSG that seemed
+the most "magical" and least extensible. I was mostly right,
+
+## projects
+
+This section is where I hosted writeups for a few of my projects. I wanted it to
+be impressive-seeming and to use a modern framework. I put a lot of effort into
+making flashy entrance animations and adding page transitions.
+
+I considered using [NextJS](https://nextjs.org/), but I didn't really want to
+learn React at the time, so I went with [**Nuxt**](https://nuxt.com/) instead.
+Nuxt was by far my least favorite of the frameworks I used. I get the feeling
+that Nuxt would be really powerful if I was doing things The Nuxt Way (e.g.
+using Nuxt UI), but because I was doing things my way, I had to constantly fight
+Nuxt to get it to do what I wanted.
+
+## 404
+
+This section is just the 404 page. I had already had a 404 page that I was
+really happy with from the first version of my personal website, so I just
+copied it over.
+
+I wanted it to be a single HTML file for stability so I wouldn't need to worry
+about loading external assets.
+[**vite-plugin-singlefile**](https://www.npmjs.com/package/vite-plugin-singlefile)
+was the easiest way I could find to do this.
+
+## common
+
+This section provides the shared assets for every other section.
