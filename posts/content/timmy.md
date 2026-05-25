@@ -68,7 +68,9 @@ $$\lim_{x \to \infty} \frac{1}{x} = 0$$
 
 ...or that I'm using the
 [extended real number system](https://en.wikipedia.org/wiki/Extended_real_number_line).
-Take your pick. +++
+Take your pick.
+
++++
 
 What's more, the odds that they were anywhere near the top of the stack or the
 bottom of the stack were also equal to zero. This meant that they had an
