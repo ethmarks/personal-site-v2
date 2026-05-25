@@ -35,6 +35,38 @@ focus on performance and page speed. I enjoyed using Astro. I especially liked
 Astro Components, which are basically just Svelte components but without the
 runtime overhead.
 
+This section's repo also contained the `vercel.json` that defined my reverse
+proxy logic using Vercel Rewrites:
+
+```json
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/common/:path*",
+      "destination": "https://common-ethmarks.vercel.app/common/:path*"
+    },
+    {
+      "source": "/about/:path*",
+      "destination": "https://about-ethmarks.vercel.app/about/:path*"
+    },
+    {
+      "source": "/posts/:path*",
+      "destination": "https://posts-ethmarks.vercel.app/posts/:path*"
+    },
+    {
+      "source": "/ink/:path*",
+      "destination": "https://ink-ethmarks.vercel.app/ink/:path*"
+    },
+    {
+      "source": "/projects/:path*",
+      "destination": "https://projects-ethmarks.vercel.app/projects/:path*"
+    }
+  ]
+}
+```
+
 ## about
 
 This section is my About Me page. I wanted to keep the code simple, but still
