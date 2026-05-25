@@ -21,7 +21,6 @@ export default class EthmarksHeader extends HTMLElement {
       { name: "Home", href: "/" },
       { name: "About", href: "/about" },
       { name: "Posts", href: "/posts" },
-      { name: "Blips", href: "/blips" },
       { name: "Ink", href: "/ink" },
       { name: "Projects", href: "/projects/" },
     ];
