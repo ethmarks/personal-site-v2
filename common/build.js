@@ -2,8 +2,8 @@ import * as fs from "fs/promises";
 import { existsSync, statSync } from "fs";
 import * as path from "path";
 
-export const BASE_PATH = process.env.BASE_PATH || ""; // "common/"
-export const OUT_DIR = "dist/" + BASE_PATH; // "dist/common/"
+export const BASE_PATH = "common/";
+export const OUT_DIR = "dist/";
 
 fs.rm(OUT_DIR, { recursive: true, force: true });
 fs.mkdir(OUT_DIR, { recursive: true });

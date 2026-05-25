@@ -1,8 +1,8 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: process.env.BASE_PATH || "",
+  base: "/about",
   build: {
-    outDir: "dist" + (process.env.BASE_PATH || ""),
+    outDir: "dist",
   },
 });

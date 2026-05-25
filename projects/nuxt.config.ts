@@ -8,6 +8,10 @@ export default defineNuxtConfig({
     preset: "static",
   },
 
+  app: {
+    baseURL: "/projects/",
+  },
+
   vue: {
     compilerOptions: {
       isCustomElement: (tag) => tag.startsWith("eth-"),

@@ -43,7 +43,7 @@ useHead({
             href: `/common/ethmarks.ico`,
             type: "image/x-icon",
         },
-        { rel: "stylesheet", href: `/ethmarks-rich.css` },
+        { rel: "stylesheet", href: `/common/ethmarks-rich.css` },
     ],
     script: [
         { src: `/common/ethmarks.wc.js`, defer: true },
