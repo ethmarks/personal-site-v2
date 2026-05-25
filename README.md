@@ -23,7 +23,24 @@ git mv !(site|about|posts|ink|projects|common|404) site/
 git remote remove temp-remote
 ```
 
-## site
+## Sections
+
+I've written brief writeups of each site section in this README. Note that the
+section repos themselves lack READMEs (I never got around to it).
+
+Summary Table:
+
+| Section  | Framework  | Runtime | Goal            | My Rating |
+| -------- | ---------- | ------- | --------------- | --------- |
+| site     | Astro      | Node    | Performance     | 9/10      |
+| about    | petite-vue | Browser | Simplicity      | 8/10      |
+| posts    | Lume       | Deno    | Extensibility   | 10/10     |
+| ink      | Zola       | Rust    | Inflexibility   | 7/10      |
+| projects | Nuxt       | Node    | Modernity       | 4/10      |
+| 404      | Vite       | Node    | HTML Bundling   | 8/10      |
+| common   | Custom     | Node    | Customizability | 9/10      |
+
+### site
 
 ![A dark-themed landing page with a teal accent. The lines "Ahoy! I'm", "Ethan
 Marks", "Software Developer" are prominently
@@ -31,8 +48,8 @@ displayed.](.github/assets/site.png)
 
 This section is the landing page. I wanted to make it as performant and
 lightweight as possible. I managed to get the full page size down to 314
-kilobytes, and the initial load down to 242 kilobytes kilobytes, despite having
-9 images and more than 200 CSS rules.
+kilobytes, and the initial load down to 242 kilobytes, despite having 9 images
+and more than 200 CSS rules.
 
 I chose [**Astro**](https://astro.build/) for the framework, because of its
 focus on performance and page speed. I enjoyed using Astro. I especially liked
@@ -71,7 +88,7 @@ proxy logic using Vercel Rewrites:
 }
 ```
 
-## about
+### about
 
 ![A dark-themed about page with a teal accent. A bio with the text "My name is
 Ethan Marks. I'm 15 years old and in my fourth semester of dual-enrollment at my
@@ -89,7 +106,7 @@ experience with it, but I went with
 to learn Vue syntax. I wrote the whole thing as (mostly) a single HTML file with
 a bit of petite-vue sprinkled in, and I bundled it using Vite.
 
-## posts
+### posts
 
 ![A dark-themed post index page with a teal accent. The visible posts have the
 titles "Inverses of Hyperoperations", "How to ethically destroy infinite
@@ -107,7 +124,7 @@ frameworks I've used, Lume is my favorite. It's very feature-rich out of the
 box, but it's also highly extensible. As an added bonus, Lume was my first
 introduction to Deno, an alternative JS runtime, which I absolutely love.
 
-## ink
+### ink
 
 ![A dark-themed creative writing index page with a teal accent. Four explanatory
 paragraphs are visible, describing the section's purpose, the choice of Zola,
@@ -122,7 +139,7 @@ I chose [**Zola**](https://www.getzola.org/) because it was the SSG that seemed
 the most "magical" and least extensible, a sentiment which I confirmed when
 actually using it.
 
-## projects
+### projects
 
 ![A dark-themed project index page with a teal accent. The first visible project
 is titled "ColourlessTransformer" with a subtitle of "A Streamlit interface for
@@ -142,7 +159,7 @@ that Nuxt would be really powerful if I was doing things The Nuxt Way (e.g.
 using Nuxt UI), but because I was doing things my way, I had to constantly fight
 Nuxt to get it to do what I wanted.
 
-## 404
+### 404
 
 ![A dark-themed 404 page with a teal accent. The highly stylized numbers
 "404" are prominently displayed, with the subtitle "Page not found" visible
@@ -158,7 +175,7 @@ about loading external assets.
 [**vite-plugin-singlefile**](https://www.npmjs.com/package/vite-plugin-singlefile)
 was the easiest way I could find to do this.
 
-## common
+### common
 
 ![A dark-themed asset index page. 43 assets files are listed.](.github/assets/common.png)
 
