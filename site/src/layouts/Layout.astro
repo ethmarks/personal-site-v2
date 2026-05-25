@@ -12,7 +12,6 @@ const canonUrl = "https://site-ethmarks.vercel.app";
 const title = "Ethan Marks";
 const desc = "The landing page of ethmarks's personal website";
 const img = "/ethmarks_site.webp";
-const sourceURL = "https://github.com/ethmarks/site";
 ---
 
 <!doctype html>
@@ -60,7 +59,7 @@ const sourceURL = "https://github.com/ethmarks/site";
             <!-- <Fragment set:html={headerHTML} /> -->
         </eth-header>
         <slot />
-        <eth-footer source={sourceURL}>
+        <eth-footer>
             <!-- <Fragment set:html={footerHTML} /> -->
         </eth-footer>
     </body>

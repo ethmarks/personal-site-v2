@@ -2,7 +2,6 @@
 const route = useRoute();
 
 const canonUrl = "https://site-ethmarks.vercel.app/projects";
-const sourceURL = "https://github.com/ethmarks/projects";
 
 const pageTitle = computed(() => route.meta.title || "Projects");
 const pageDesc = computed(
@@ -59,5 +58,5 @@ useHead({
 <template>
     <eth-header active="projects"></eth-header>
     <slot />
-    <eth-footer :source="sourceURL"></eth-footer>
+    <eth-footer></eth-footer>
 </template>
