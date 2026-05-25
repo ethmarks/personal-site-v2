@@ -25,6 +25,10 @@ git remote remove temp-remote
 
 ## site
 
+![A dark-themed landing page with a teal accent. The lines "Ahoy! I'm", "Ethan
+Marks", "Software Developer" are prominently
+displayed.](.github/assets/site.png)
+
 This section is the landing page. I wanted to make it as performant and
 lightweight as possible. I managed to get the full page size down to 314
 kilobytes, and the initial load down to 242 kilobytes kilobytes, despite having
@@ -69,6 +73,12 @@ proxy logic using Vercel Rewrites:
 
 ## about
 
+![A dark-themed about page with a teal accent. A bio with the text "My name is
+Ethan Marks. I'm 15 years old and in my fourth semester of dual-enrollment at my
+local community college. In my free time, I code stuff." is prominently
+displayed. Below, tables labeled "Likes" and "Hobbies" are
+visible.](.github/assets/about.png)
+
 This section is my About Me page. I wanted to keep the code simple, but still
 wanted to add touches of reactivity for things like the live-updating commit
 counter.
@@ -80,6 +90,12 @@ to learn Vue syntax. I wrote the whole thing as (mostly) a single HTML file with
 a bit of petite-vue sprinkled in, and I bundled it using Vite.
 
 ## posts
+
+![A dark-themed post index page with a teal accent. The visible posts have the
+titles "Inverses of Hyperoperations", "How to ethically destroy infinite
+universes", "A new measurement system", "The Waterman Butterfly", "Mercator's
+World Map was useless", and "Volumetric Shadows in
+Toronto".](.github/assets/posts.png)
 
 This section is where I hosted my articles. I wanted a lot of control over how
 the Markdown source was processed, and I wanted it to use JS so I wouldn't have
@@ -93,6 +109,11 @@ introduction to Deno, an alternative JS runtime, which I absolutely love.
 
 ## ink
 
+![A dark-themed creative writing index page with a teal accent. Four explanatory
+paragraphs are visible, describing the section's purpose, the choice of Zola,
+the creation date of some works, and the CC0 license. The two visible works are
+titled "The Last Satellite" and "Symphony of Industry".](.github/assets/ink.png)
+
 This section is where I hosted my creative writing. I wanted the technical side
 to be as absolutely simple as possible so that the focus would be on the
 content.
@@ -102,6 +123,13 @@ the most "magical" and least extensible, a sentiment which I confirmed when
 actually using it.
 
 ## projects
+
+![A dark-themed project index page with a teal accent. The first visible project
+is titled "ColourlessTransformer" with a subtitle of "A Streamlit interface for
+PaintTransformer, a neural network that approximates images using paint
+strokes". The second visible project has a title of "Thessa" and a subtitle of
+"An AI thesaurus built with SvelteKit powered by 
+Cerebras".](.github/assets/projects.png)
 
 This section is where I hosted writeups for a few of my projects. I wanted it to
 be impressive-seeming and to use a modern framework. I put a lot of effort into
@@ -116,6 +144,11 @@ Nuxt to get it to do what I wanted.
 
 ## 404
 
+![A dark-themed 404 page with a teal accent. The highly stylized numbers
+"404" are prominently displayed, with the subtitle "Page not found" visible
+beneath. In the background are revolving concentric rings of dots that react to
+the cursor's position.](.github/assets/404.png)
+
 This section is just the 404 page. I had already had a 404 page that I was
 really happy with from the first version of my personal website, so I just
 copied it over.
@@ -126,6 +159,8 @@ about loading external assets.
 was the easiest way I could find to do this.
 
 ## common
+
+![A dark-themed asset index page. 43 assets files are listed.](.github/assets/common.png)
 
 This section provides the shared assets for every other section. I wanted every
 section of the site to be cohesive, but I wanted to maintain a single source of
