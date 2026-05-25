@@ -3,7 +3,8 @@
   "type": "module",
   "scripts": {
     "build:all": "turbo run build",
-    "bundle": "pnpm run build:all && node ./merge-outputs.js"
+    "bundle": "pnpm run build:all && node ./merge-outputs.js",
+    "clean": "rm -rf dist site/dist about/dist posts/dist projects/dist ink/dist 404/dist common/dist"
   },
   "devDependencies": {
     "turbo": "^2.9.14"
